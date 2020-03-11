@@ -1,0 +1,2802 @@
+19:25:00.005 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+19:25:00.008 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+19:25:00.024 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+19:25:00.025 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/iri/src/main/java/com/iota/iri/config/ethereumj.conf'
+19:25:00.025 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+19:25:00.025 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+19:25:00.026 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+19:25:00.026 INFO [general]  Config ( no  ): config passed via constructor
+19:25:00.030 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+19:25:00.061 DEBUG [db]  New RocksDbDataSource: test
+19:25:00.061 DEBUG [db]  ~> RocksDbDataSource.init(): test
+19:25:00.067 DEBUG [db]  Opening database
+19:25:00.069 DEBUG [db]  Initializing new or existing database: 'test'
+19:25:00.112 DEBUG [db]  <~ RocksDbDataSource.init(): test
+19:25:00.132 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+19:25:00.132 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+19:25:00.143 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+19:25:00.143 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/iri/src/main/java/com/iota/iri/config/ethereumj.conf'
+19:25:00.144 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+19:25:00.144 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+19:25:00.144 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+19:25:00.144 INFO [general]  Config ( no  ): config passed via constructor
+19:25:00.146 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+19:25:00.459 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+19:25:00.464 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+19:25:00.469 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+19:25:00.470 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/iri/src/main/java/com/iota/iri/config/ethereumj.conf'
+19:25:00.470 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+19:25:00.470 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+19:25:00.471 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+19:25:00.471 INFO [general]  Config ( no  ): config passed via constructor
+19:25:00.473 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+19:25:00.649 DEBUG [db]  Close db: test
+19:25:00.655 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+19:25:00.655 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+19:25:00.660 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+19:25:00.660 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/iri/src/main/java/com/iota/iri/config/ethereumj.conf'
+19:25:00.661 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+19:25:00.661 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+19:25:00.661 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+19:25:00.661 INFO [general]  Config ( no  ): config passed via constructor
+19:25:00.662 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+19:25:00.664 DEBUG [db]  New RocksDbDataSource: test
+19:25:00.664 DEBUG [db]  ~> RocksDbDataSource.init(): test
+19:25:00.664 DEBUG [db]  Opening database
+19:25:00.664 DEBUG [db]  Initializing new or existing database: 'test'
+19:25:00.714 DEBUG [db]  <~ RocksDbDataSource.init(): test
+19:28:00.933 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+19:28:00.935 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+19:28:00.952 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+19:28:00.953 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/iri/src/main/java/com/iota/iri/config/ethereumj.conf'
+19:28:00.953 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+19:28:00.953 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+19:28:00.954 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+19:28:00.954 INFO [general]  Config ( no  ): config passed via constructor
+19:28:00.958 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+19:28:00.986 DEBUG [db]  New RocksDbDataSource: test
+19:28:00.986 DEBUG [db]  ~> RocksDbDataSource.init(): test
+19:28:00.992 DEBUG [db]  Opening database
+19:28:00.993 DEBUG [db]  Initializing new or existing database: 'test'
+19:28:01.039 DEBUG [db]  <~ RocksDbDataSource.init(): test
+19:28:01.056 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+19:28:01.056 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+19:28:01.067 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+19:28:01.067 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/iri/src/main/java/com/iota/iri/config/ethereumj.conf'
+19:28:01.067 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+19:28:01.068 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+19:28:01.068 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+19:28:01.068 INFO [general]  Config ( no  ): config passed via constructor
+19:28:01.070 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+19:28:01.369 INFO [c.i.i.TransactionExecutor]  create
+19:28:01.379 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+19:28:01.380 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+19:28:01.386 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+19:28:01.390 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/iri/src/main/java/com/iota/iri/config/ethereumj.conf'
+19:28:01.391 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+19:28:01.391 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+19:28:01.392 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+19:28:01.392 INFO [general]  Config ( no  ): config passed via constructor
+19:28:01.394 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+19:28:01.556 INFO [c.i.i.TransactionExecutor]  [ContractAddress]bd770416a3345f91e4b34576cb804a576fa48eb1
+19:28:01.558 INFO [c.i.i.TransactionExecutor]  Addr not Existing?true
+19:28:01.563 INFO [c.i.i.TransactionExecutor]  tx:false,cacheTrack:false,originalRepo:false
+19:28:01.619 DEBUG [db]  Close db: test
+19:28:01.631 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+19:28:01.631 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+19:28:01.638 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+19:28:01.638 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/iri/src/main/java/com/iota/iri/config/ethereumj.conf'
+19:28:01.639 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+19:28:01.639 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+19:28:01.639 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+19:28:01.639 INFO [general]  Config ( no  ): config passed via constructor
+19:28:01.640 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+19:28:01.643 DEBUG [db]  New RocksDbDataSource: test
+19:28:01.643 DEBUG [db]  ~> RocksDbDataSource.init(): test
+19:28:01.643 DEBUG [db]  Opening database
+19:28:01.643 DEBUG [db]  Initializing new or existing database: 'test'
+19:28:01.686 DEBUG [db]  <~ RocksDbDataSource.init(): test
