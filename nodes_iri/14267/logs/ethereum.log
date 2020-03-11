@@ -1,0 +1,3279 @@
+15:26:35.158 INFO [c.i.i.IRI$IRILauncher]  Configuration is created using command line args only
+15:26:35.159 INFO [c.i.i.IRI$IRILauncher]  parsed the following cmd args: [--testnet, true, --remote, true, --testnet-coordinator, EQFUFPJODWV9OBIQAWFABRFHYQZQVZJKVKTDALDWGWVSGIZAYHLUKXRXKAGYTMKHMMRGVXU9TOUGUOQE9, --testnet-coordinator-security-level, 1, --testnet-coordinator-signature-mode, CURLP27, --mwm, 9, --milestone-start, 0, --milestone-keys, 14, --snapshot, /root/IOTA/compass/docs/private_tangle/snapshot.txt, --max-depth, 1000, --port, 14267, --neighbors, tcp://127.0.0.1:15600, -t, 15602]
+15:26:35.160 INFO [c.i.i.IRI$IRILauncher]  Welcome to IRI Testnet 1.8.4
+15:26:35.662 INFO [c.i.i.s.API]  =========Compass api invoked===========
+15:26:35.664 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  Initializing Database on localsnapshots-db
+15:26:35.867 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  RocksDB persistence provider initialized.
+15:26:35.868 INFO [c.i.i.s.s.i.SnapshotProviderImpl]  no local snapshot persisted in the database
+15:26:35.872 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #0 to #0
+15:26:35.873 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  Initializing Database on testnetdb
+15:26:36.138 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  RocksDB persistence provider initialized.
+15:26:36.186 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+15:26:36.187 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+15:26:36.195 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+15:26:36.195 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/nodes_iri/14267/config/ethereumj.conf'
+15:26:36.195 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+15:26:36.195 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+15:26:36.196 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+15:26:36.196 INFO [general]  Config ( no  ): config passed via constructor
+15:26:36.198 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+15:26:36.210 DEBUG [db]  ~> RocksDbDataSource.init(): EVM
+15:26:36.214 DEBUG [db]  Opening database
+15:26:36.215 DEBUG [db]  Initializing new or existing database: 'EVM'
+15:26:36.262 DEBUG [db]  <~ RocksDbDataSource.init(): EVM
+15:26:36.275 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+15:26:36.275 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+15:26:36.281 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+15:26:36.281 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/nodes_iri/14267/config/ethereumj.conf'
+15:26:36.281 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+15:26:36.282 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+15:26:36.282 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+15:26:36.282 INFO [general]  Config ( no  ): config passed via constructor
+15:26:36.283 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+15:26:36.294 INFO [c.i.i.n.NeighborRouterImpl]  starting neighbor router
+15:26:36.296 INFO [c.i.i.n.i.TipsRequesterImpl]  Starting [Tips Requester] (starts in 0ms / runs every 5000ms) ...
+15:26:36.297 INFO [c.i.i.n.i.TipsRequesterImpl]  [Tips Requester] Started (execution #1) ...
+15:26:36.297 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Starting [Latest Milestone Tracker] (starts in 0ms / runs every 1000ms) ...
+15:26:36.298 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  [Latest Milestone Tracker] Started (execution #1) ...
+15:26:36.302 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Starting [Latest Solid Milestone Tracker] (starts in 0ms / runs every 5000ms) ...
+15:26:36.302 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  [Latest Solid Milestone Tracker] Started (execution #1) ...
+15:26:36.303 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  Starting [Seen Milestones Retriever] (starts in 0ms / runs every 1000ms) ...
+15:26:36.303 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  [Seen Milestones Retriever] Started (execution #1) ...
+15:26:36.303 INFO [c.i.i.n.NeighborRouterImpl]  bound server TCP socket to /0.0.0.0:15602
+15:26:36.303 INFO [c.i.i.s.m.MilestoneSolidifier]  Starting [Milestone Solidifier] (starts in 0ms / runs every 500ms) ...
+15:26:36.303 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 0
+15:26:36.303 INFO [c.i.i.s.m.MilestoneSolidifier]  [Milestone Solidifier] Started (execution #1) ...
+15:26:36.304 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  Requesting seen milestones ... [DONE]
+15:26:36.304 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  Stopping [Seen Milestones Retriever] ...
+15:26:36.305 INFO [c.i.i.n.NeighborRouterImpl]  establishing connections to 1 wanted neighbors [tcp://127.0.0.1:15600]
+15:26:36.305 INFO [c.i.i.u.t.ThreadUtils]  Starting Thread: Local Snapshots Monitor ...
+15:26:36.306 INFO [c.i.i.u.t.ThreadUtils]  Local Snapshots Monitor [STARTED]
+15:26:36.308 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Processing milestone candidates ... [DONE]
+15:26:36.313 INFO [c.i.i.n.NeighborRouterImpl]  established connection to neighbor 127.0.0.1:15600, now performing handshake...
+15:26:36.314 INFO [c.i.i.n.NeighborRouterImpl]  neighbor connection to 127.0.0.1:15600 is ready for messages [latency 5 ms, protocol version 1]
+15:26:36.316 DEBUG [c.i.i.s.r.r.RestEasy]  Binding JSON-REST API Undertow server on 0.0.0.0:14267
+15:26:36.428 DEBUG [o.j.logging]  Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+15:26:36.430 DEBUG [i.undertow]  starting undertow server io.undertow.Undertow@7862f56
+15:26:36.439 INFO [o.xnio]  XNIO version 3.3.8.Final
+15:26:36.450 INFO [o.x.nio]  XNIO NIO Implementation Version 3.3.8.Final
+15:26:36.518 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-1', selector sun.nio.ch.EPollSelectorImpl@3c153275
+15:26:36.518 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-2', selector sun.nio.ch.EPollSelectorImpl@727b7ac6
+15:26:36.518 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-3', selector sun.nio.ch.EPollSelectorImpl@2d93f72f
+15:26:36.518 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-4', selector sun.nio.ch.EPollSelectorImpl@2589006b
+15:26:36.519 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-5', selector sun.nio.ch.EPollSelectorImpl@770cf6f
+15:26:36.519 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-6', selector sun.nio.ch.EPollSelectorImpl@23a60fe8
+15:26:36.519 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-7', selector sun.nio.ch.EPollSelectorImpl@7c7e0b21
+15:26:36.519 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-8', selector sun.nio.ch.EPollSelectorImpl@1e28798c
+15:26:36.519 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-9', selector sun.nio.ch.EPollSelectorImpl@7e7dbb3f
+15:26:36.519 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-10', selector sun.nio.ch.EPollSelectorImpl@1415209a
+15:26:36.519 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-11', selector sun.nio.ch.EPollSelectorImpl@79952d3
+15:26:36.521 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-13', selector sun.nio.ch.EPollSelectorImpl@31d37f1b
+15:26:36.521 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-19', selector sun.nio.ch.EPollSelectorImpl@b0649f3
+15:26:36.521 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-12', selector sun.nio.ch.EPollSelectorImpl@e22d9f1
+15:26:36.521 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-14', selector sun.nio.ch.EPollSelectorImpl@12d9fed7
+15:26:36.521 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-21', selector sun.nio.ch.EPollSelectorImpl@72172b1
+15:26:36.521 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-20', selector sun.nio.ch.EPollSelectorImpl@43535b72
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-16', selector sun.nio.ch.EPollSelectorImpl@1444b3f0
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-22', selector sun.nio.ch.EPollSelectorImpl@22fce376
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-17', selector sun.nio.ch.EPollSelectorImpl@717c0943
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-15', selector sun.nio.ch.EPollSelectorImpl@3eada266
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-25', selector sun.nio.ch.EPollSelectorImpl@5ecd32c8
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-18', selector sun.nio.ch.EPollSelectorImpl@465a7da0
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-24', selector sun.nio.ch.EPollSelectorImpl@79efa4b0
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-23', selector sun.nio.ch.EPollSelectorImpl@46f80990
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-27', selector sun.nio.ch.EPollSelectorImpl@5af37e
+15:26:36.522 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-26', selector sun.nio.ch.EPollSelectorImpl@7b8d3039
+15:26:36.523 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-28', selector sun.nio.ch.EPollSelectorImpl@3dbdb54e
+15:26:36.523 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-29', selector sun.nio.ch.EPollSelectorImpl@207cc78e
+15:26:36.523 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-30', selector sun.nio.ch.EPollSelectorImpl@422808ce
+15:26:36.523 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 Accept', selector sun.nio.ch.EPollSelectorImpl@47e10d4a
+15:26:36.525 DEBUG [i.undertow]  Configuring listener with protocol HTTP for interface 0.0.0.0 and port 14267
+15:26:36.595 DEBUG [i.u.session]  Setting default session timeout to 1800
+15:26:36.600 DEBUG [i.u.session]  Registered session listener io.undertow.servlet.core.SessionListenerBridge@4212a0c8
+15:26:36.684 DEBUG [o.j.r.r.i18n]  Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+15:26:36.688 DEBUG [o.j.r.r.i18n]  Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+15:26:36.704 INFO [o.j.r.r.i18n]  RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.iota.iri.service.restserver.resteasy.RestEasy
+15:26:36.706 INFO [c.i.i.IRI$IRILauncher]  IOTA Node initialised correctly.
+15:26:46.305 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 1
+15:26:56.306 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 1
+15:27:06.307 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 1
+15:27:06.667 DEBUG [i.u.request]  Matched default handler path /
+15:27:06.680 DEBUG [i.u.r.security]  Attempting to authenticate /, authentication required: false
+15:27:06.681 DEBUG [i.u.r.security]  Authentication outcome was NOT_ATTEMPTED with method io.undertow.security.impl.CachedAuthenticatedSessionMechanism@2dc735eb for /
+15:27:06.681 DEBUG [i.u.r.security]  Authentication result was ATTEMPTED for /
+15:27:06.681 DEBUG [i.u.request]  Matched default handler path /
+15:27:06.692 DEBUG [c.i.i.s.API]  # 1 -> Requesting command 'getStorage'
+15:27:06.702 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+15:27:06.703 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+15:27:06.706 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+15:27:06.706 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/nodes_iri/14267/config/ethereumj.conf'
+15:27:06.707 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+15:27:06.707 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+15:27:06.707 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+15:27:06.707 INFO [general]  Config ( no  ): config passed via constructor
+15:27:06.709 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+15:27:06.873 ERROR [c.i.i.s.API]  API Exception: java.lang.NullPointerException
+15:27:06.878 DEBUG [i.u.r.error-response]  Setting error code 500 for exchange HttpServerExchange{ POST /}
+java.lang.RuntimeException: null
+	at io.undertow.server.HttpServerExchange.setStatusCode(HttpServerExchange.java:1410)
+	at com.iota.iri.service.restserver.resteasy.RestEasy.sendResponse(RestEasy.java:243)
+	at com.iota.iri.service.restserver.resteasy.RestEasy.processRequest(RestEasy.java:303)
+	at com.iota.iri.service.restserver.resteasy.RestEasy.access$100(RestEasy.java:59)
+	at com.iota.iri.service.restserver.resteasy.RestEasy$2.handleRequest(RestEasy.java:186)
+	at io.undertow.server.handlers.PathHandler.handleRequest(PathHandler.java:91)
+	at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:132)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:269)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:78)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:133)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:130)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:249)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:78)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:99)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:376)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:830)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+15:27:16.308 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 1
+15:27:19.949 INFO [c.i.i.IRI$IRILauncher]  Shutting down IOTA node, please hold tight...
+15:28:36.121 INFO [c.i.i.IRI$IRILauncher]  Configuration is created using command line args only
+15:28:36.122 INFO [c.i.i.IRI$IRILauncher]  parsed the following cmd args: [--testnet, true, --remote, true, --testnet-coordinator, EQFUFPJODWV9OBIQAWFABRFHYQZQVZJKVKTDALDWGWVSGIZAYHLUKXRXKAGYTMKHMMRGVXU9TOUGUOQE9, --testnet-coordinator-security-level, 1, --testnet-coordinator-signature-mode, CURLP27, --mwm, 9, --milestone-start, 0, --milestone-keys, 14, --snapshot, /root/IOTA/compass/docs/private_tangle/snapshot.txt, --max-depth, 1000, --port, 14267, --neighbors, tcp://127.0.0.1:15601, -t, 15602]
+15:28:36.123 INFO [c.i.i.IRI$IRILauncher]  Welcome to IRI Testnet 1.8.4
+15:28:36.682 INFO [c.i.i.s.API]  =========Compass api invoked===========
+15:28:36.684 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  Initializing Database on localsnapshots-db
+15:28:36.789 WARN [c.i.i.s.r.RocksDBPersistenceProvider]  Defined a db log path in config and commandline; Using the command line setting.
+15:28:36.844 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  RocksDB persistence provider initialized.
+15:28:36.845 INFO [c.i.i.s.s.i.SnapshotProviderImpl]  no local snapshot persisted in the database
+15:28:36.850 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #0 to #0
+15:28:36.851 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  Initializing Database on testnetdb
+15:28:36.950 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  RocksDB persistence provider initialized.
+15:28:37.006 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+15:28:37.006 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+15:28:37.016 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+15:28:37.017 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/nodes_iri/14267/config/ethereumj.conf'
+15:28:37.017 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+15:28:37.017 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+15:28:37.017 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+15:28:37.017 INFO [general]  Config ( no  ): config passed via constructor
+15:28:37.020 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+15:28:37.034 DEBUG [db]  ~> RocksDbDataSource.init(): EVM
+15:28:37.039 DEBUG [db]  Opening database
+15:28:37.040 DEBUG [db]  Initializing new or existing database: 'EVM'
+15:28:37.114 DEBUG [db]  <~ RocksDbDataSource.init(): EVM
+15:28:37.129 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+15:28:37.129 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+15:28:37.137 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+15:28:37.138 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/nodes_iri/14267/config/ethereumj.conf'
+15:28:37.138 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+15:28:37.138 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+15:28:37.138 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+15:28:37.138 INFO [general]  Config ( no  ): config passed via constructor
+15:28:37.141 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+15:28:37.155 INFO [c.i.i.n.NeighborRouterImpl]  starting neighbor router
+15:28:37.158 INFO [c.i.i.n.i.TipsRequesterImpl]  Starting [Tips Requester] (starts in 0ms / runs every 5000ms) ...
+15:28:37.160 INFO [c.i.i.n.i.TipsRequesterImpl]  [Tips Requester] Started (execution #1) ...
+15:28:37.160 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Starting [Latest Milestone Tracker] (starts in 0ms / runs every 1000ms) ...
+15:28:37.160 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  [Latest Milestone Tracker] Started (execution #1) ...
+15:28:37.164 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Starting [Latest Solid Milestone Tracker] (starts in 0ms / runs every 5000ms) ...
+15:28:37.165 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  [Latest Solid Milestone Tracker] Started (execution #1) ...
+15:28:37.165 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  Starting [Seen Milestones Retriever] (starts in 0ms / runs every 1000ms) ...
+15:28:37.165 INFO [c.i.i.n.NeighborRouterImpl]  bound server TCP socket to /0.0.0.0:15602
+15:28:37.165 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  [Seen Milestones Retriever] Started (execution #1) ...
+15:28:37.165 INFO [c.i.i.s.m.MilestoneSolidifier]  Starting [Milestone Solidifier] (starts in 0ms / runs every 500ms) ...
+15:28:37.166 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 1
+15:28:37.166 INFO [c.i.i.s.m.MilestoneSolidifier]  [Milestone Solidifier] Started (execution #1) ...
+15:28:37.166 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  Requesting seen milestones ... [DONE]
+15:28:37.166 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  Stopping [Seen Milestones Retriever] ...
+15:28:37.167 INFO [c.i.i.n.NeighborRouterImpl]  establishing connections to 1 wanted neighbors [tcp://127.0.0.1:15601]
+15:28:37.168 INFO [c.i.i.u.t.ThreadUtils]  Starting Thread: Local Snapshots Monitor ...
+15:28:37.169 INFO [c.i.i.u.t.ThreadUtils]  Local Snapshots Monitor [STARTED]
+15:28:37.173 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Processing milestone candidates ... [DONE]
+15:28:37.175 INFO [c.i.i.n.NeighborRouterImpl]  established connection to neighbor 127.0.0.1:15601, now performing handshake...
+15:28:37.176 INFO [c.i.i.n.NeighborRouterImpl]  neighbor connection to 127.0.0.1:15601 is ready for messages [latency 5 ms, protocol version 1]
+15:28:37.177 WARN [c.i.i.n.NeighborRouterImpl]  unable to read message from neighbor 127.0.0.1:15601. reason: Connection reset by peer
+15:28:37.178 INFO [c.i.i.n.NeighborRouterImpl]  removed neighbor 127.0.0.1:15601 from connected neighbors
+15:28:37.178 INFO [c.i.i.n.NeighborRouterImpl]  adding tcp://127.0.0.1:15601 to the reconnect pool
+15:28:37.179 DEBUG [c.i.i.s.r.r.RestEasy]  Binding JSON-REST API Undertow server on 0.0.0.0:14267
+15:28:37.286 DEBUG [o.j.logging]  Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+15:28:37.288 DEBUG [i.undertow]  starting undertow server io.undertow.Undertow@66ac5762
+15:28:37.297 INFO [o.xnio]  XNIO version 3.3.8.Final
+15:28:37.310 INFO [o.x.nio]  XNIO NIO Implementation Version 3.3.8.Final
+15:28:37.368 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-1', selector sun.nio.ch.EPollSelectorImpl@2ba29454
+15:28:37.369 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-2', selector sun.nio.ch.EPollSelectorImpl@3cf628e6
+15:28:37.369 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-3', selector sun.nio.ch.EPollSelectorImpl@1d7218d
+15:28:37.369 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-4', selector sun.nio.ch.EPollSelectorImpl@1317499
+15:28:37.369 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-5', selector sun.nio.ch.EPollSelectorImpl@3d3f849
+15:28:37.369 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-6', selector sun.nio.ch.EPollSelectorImpl@6dd8a38d
+15:28:37.369 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-7', selector sun.nio.ch.EPollSelectorImpl@f3b649b
+15:28:37.369 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-8', selector sun.nio.ch.EPollSelectorImpl@25b4d644
+15:28:37.369 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-9', selector sun.nio.ch.EPollSelectorImpl@659b08b5
+15:28:37.370 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-10', selector sun.nio.ch.EPollSelectorImpl@3c153275
+15:28:37.370 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-11', selector sun.nio.ch.EPollSelectorImpl@727b7ac6
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-12', selector sun.nio.ch.EPollSelectorImpl@2d93f72f
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-15', selector sun.nio.ch.EPollSelectorImpl@23a60fe8
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-13', selector sun.nio.ch.EPollSelectorImpl@2589006b
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-14', selector sun.nio.ch.EPollSelectorImpl@770cf6f
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-18', selector sun.nio.ch.EPollSelectorImpl@1415209a
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-19', selector sun.nio.ch.EPollSelectorImpl@7d75d053
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-20', selector sun.nio.ch.EPollSelectorImpl@3eada266
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-17', selector sun.nio.ch.EPollSelectorImpl@7e7dbb3f
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-21', selector sun.nio.ch.EPollSelectorImpl@1444b3f0
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-22', selector sun.nio.ch.EPollSelectorImpl@b0649f3
+15:28:37.371 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-16', selector sun.nio.ch.EPollSelectorImpl@7c7e0b21
+15:28:37.372 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-24', selector sun.nio.ch.EPollSelectorImpl@379b9cb5
+15:28:37.372 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-23', selector sun.nio.ch.EPollSelectorImpl@459d3cae
+15:28:37.372 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-25', selector sun.nio.ch.EPollSelectorImpl@43535b72
+15:28:37.372 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-26', selector sun.nio.ch.EPollSelectorImpl@70087cab
+15:28:37.372 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-27', selector sun.nio.ch.EPollSelectorImpl@71c32b6e
+15:28:37.373 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-28', selector sun.nio.ch.EPollSelectorImpl@23d47255
+15:28:37.373 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-29', selector sun.nio.ch.EPollSelectorImpl@22fce376
+15:28:37.373 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-30', selector sun.nio.ch.EPollSelectorImpl@6ab852f9
+15:28:37.373 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 Accept', selector sun.nio.ch.EPollSelectorImpl@5e673c57
+15:28:37.374 DEBUG [i.undertow]  Configuring listener with protocol HTTP for interface 0.0.0.0 and port 14267
+15:28:37.439 DEBUG [i.u.session]  Setting default session timeout to 1800
+15:28:37.444 DEBUG [i.u.session]  Registered session listener io.undertow.servlet.core.SessionListenerBridge@2ccca26f
+15:28:37.525 DEBUG [o.j.r.r.i18n]  Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+15:28:37.529 DEBUG [o.j.r.r.i18n]  Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+15:28:37.545 INFO [o.j.r.r.i18n]  RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.iota.iri.service.restserver.resteasy.RestEasy
+15:28:37.548 INFO [c.i.i.IRI$IRILauncher]  IOTA Node initialised correctly.
+15:28:46.962 INFO [c.i.i.IRI$IRILauncher]  Shutting down IOTA node, please hold tight...
+15:29:05.045 INFO [c.i.i.IRI$IRILauncher]  Configuration is created using command line args only
+15:29:05.046 INFO [c.i.i.IRI$IRILauncher]  parsed the following cmd args: [--testnet, true, --remote, true, --testnet-coordinator, EQFUFPJODWV9OBIQAWFABRFHYQZQVZJKVKTDALDWGWVSGIZAYHLUKXRXKAGYTMKHMMRGVXU9TOUGUOQE9, --testnet-coordinator-security-level, 1, --testnet-coordinator-signature-mode, CURLP27, --mwm, 9, --milestone-start, 0, --milestone-keys, 14, --snapshot, /root/IOTA/compass/docs/private_tangle/snapshot.txt, --max-depth, 1000, --port, 14267, --neighbors, tcp://127.0.0.1:15600, -t, 15602]
+15:29:05.048 INFO [c.i.i.IRI$IRILauncher]  Welcome to IRI Testnet 1.8.4
+15:29:05.583 INFO [c.i.i.s.API]  =========Compass api invoked===========
+15:29:05.585 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  Initializing Database on localsnapshots-db
+15:29:05.693 WARN [c.i.i.s.r.RocksDBPersistenceProvider]  Defined a db log path in config and commandline; Using the command line setting.
+15:29:05.747 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  RocksDB persistence provider initialized.
+15:29:05.749 INFO [c.i.i.s.s.i.SnapshotProviderImpl]  no local snapshot persisted in the database
+15:29:05.754 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #0 to #0
+15:29:05.754 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  Initializing Database on testnetdb
+15:29:05.814 INFO [c.i.i.s.r.RocksDBPersistenceProvider]  RocksDB persistence provider initialized.
+15:29:05.864 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+15:29:05.865 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+15:29:05.874 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+15:29:05.875 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/nodes_iri/14267/config/ethereumj.conf'
+15:29:05.875 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+15:29:05.875 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+15:29:05.876 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+15:29:05.876 INFO [general]  Config ( no  ): config passed via constructor
+15:29:05.878 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+15:29:05.892 DEBUG [db]  ~> RocksDbDataSource.init(): EVM
+15:29:05.895 DEBUG [db]  Opening database
+15:29:05.897 DEBUG [db]  Initializing new or existing database: 'EVM'
+15:29:05.935 DEBUG [db]  <~ RocksDbDataSource.init(): EVM
+15:29:05.947 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+15:29:05.947 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+15:29:05.954 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+15:29:05.955 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/nodes_iri/14267/config/ethereumj.conf'
+15:29:05.955 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+15:29:05.955 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+15:29:05.955 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+15:29:05.955 INFO [general]  Config ( no  ): config passed via constructor
+15:29:05.957 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+15:29:05.971 INFO [general]  Config ( yes ): default properties from resource 'ethereumj.conf'
+15:29:05.972 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.res resource(s) 'null'
+15:29:05.977 INFO [general]  Config ( yes ): user properties from resource 'user.conf'
+15:29:05.978 INFO [general]  Config ( no  ): user properties from file '/root/IOTA/nodes_iri/14267/config/ethereumj.conf'
+15:29:05.978 INFO [general]  Config ( no  ): test properties from resource 'test-ethereumj.conf'
+15:29:05.978 INFO [general]  Config ( no  ): test properties from resource 'test-user.conf'
+15:29:05.984 INFO [general]  Config ( no  ): user properties from -Dethereumj.conf.file file(s) 'null'
+15:29:05.984 INFO [general]  Config ( no  ): config passed via constructor
+15:29:05.986 DEBUG [general]  Config trace: # user.conf: 169-462
+blockchain {
+    # user.conf: 169
+    config {
+        # user.conf: 169
+        name=main
+    }
+    # user.conf: 462
+    only=false
+}
+# user.conf: 468
+blocks {
+    # user.conf: 468
+    loader=""
+}
+# user.conf: 235
+cache {
+    # user.conf: 256
+    blockQueueSize=32
+    # user.conf: 237
+    flush {
+        # user.conf: 246
+        blocks=0
+        # user.conf: 249
+        shortSyncFlush=true
+        # user.conf: 241
+        writeCacheSize=64
+    }
+    # user.conf: 259
+    headerQueueSize=8
+    # user.conf: 266
+    maxStateBloomSize=128
+    # user.conf: 253
+    stateCacheSize=384
+}
+# user.conf: 471
+crypto {
+    # user.conf: 475-476
+    hash {
+        # user.conf: 475
+        alg256=ETH-KECCAK-256
+        # user.conf: 476
+        alg512=ETH-KECCAK-512
+    }
+    # user.conf: 473
+    providerName=SC
+}
+# user.conf: 177
+database {
+    # user.conf: 180
+    dir=database
+    # user.conf: 197
+    fromBackup=false
+    # user.conf: 204
+    incompatibleDatabaseBehavior=EXIT
+    # user.conf: 231
+    maxOpenFiles=512
+    # user.conf: 210
+    prune {
+        # user.conf: 211
+        enabled=true
+        # user.conf: 224
+        maxDepth=192
+    }
+    # user.conf: 186
+    reset=false
+    # user.conf: 192
+    resetBlock=0
+}
+# user.conf: 390
+dump {
+    # user.conf: 403
+    block=-1
+    # user.conf: 407
+    clean {
+        # user.conf: 407
+        on {
+            # user.conf: 407
+            restart=true
+        }
+    }
+    # user.conf: 397
+    dir=dmp
+    # user.conf: 396
+    full=false
+    # user.conf: 404
+    style=pretty
+}
+# user.conf: 155
+genesis="frontier.json"
+# user.conf: 443
+hello {
+    # user.conf: 443
+    phrase=Dev
+}
+# user.conf: 459
+keyvalue {
+    # user.conf: 459
+    datasource=rocksdb
+}
+# user.conf: 329
+mine {
+    # user.conf: 348
+    coinbase="0000000000000000000000000000000000000000"
+    # user.conf: 339
+    cpuMineThreads=4
+    # user.conf: 352
+    extraData="EthereumJ powered"
+    # user.conf: 345
+    fullDataSet=true
+    # user.conf: 361
+    minBlockTimeoutMsec=0
+    # user.conf: 358
+    minGasPrice=1000000000
+    # user.conf: 335
+    start=false
+    # user.conf: 365
+    startNonce=null
+}
+# user.conf: 1-82
+peer {
+    # user.conf: 97
+    active=[]
+    # user.conf: 126
+    capabilities=[
+        # user.conf: 126
+        eth
+    ]
+    # user.conf: 135
+    channel {
+        # user.conf: 135
+        read {
+            # user.conf: 135
+            timeout=30
+        }
+    }
+    # user.conf: 130
+    connection {
+        # user.conf: 130
+        timeout=2
+    }
+    # user.conf: 1
+    discovery {
+        # user.conf: 57
+        bind {
+            # user.conf: 57
+            ip=""
+        }
+        # user.conf: 8
+        enabled=true
+        # user.conf: 49
+        external {
+            # user.conf: 49
+            ip=null
+        }
+        # user.conf: 13
+        ip {
+            # user.conf: 13
+            list=[
+                # user.conf: 15
+                "5.1.83.226:30303",
+                # user.conf: 18
+                "52.16.188.185:30303",
+                # user.conf: 19
+                "13.93.211.84:30303",
+                # user.conf: 20
+                "191.235.84.50:30303",
+                # user.conf: 21
+                "13.75.154.138:30303",
+                # user.conf: 22
+                "52.74.57.123:30303",
+                # user.conf: 25
+                "193.70.55.37:30303",
+                # user.conf: 26
+                "144.217.139.5:30303",
+                # user.conf: 27
+                "139.99.51.203:30303",
+                # user.conf: 28
+                "139.99.160.213:30303",
+                # user.conf: 29
+                "163.172.131.191:30303",
+                # user.conf: 30
+                "212.47.247.103:30303",
+                # user.conf: 31
+                "163.172.157.114:30303",
+                # user.conf: 32
+                "138.201.223.35:30303",
+                # user.conf: 33
+                "138.201.144.135:30303",
+                # user.conf: 34
+                "51.15.42.252:30303",
+                # user.conf: 35
+                "163.172.171.38:30303",
+                # user.conf: 36
+                "163.172.187.252:30303",
+                # user.conf: 37
+                "136.243.154.244:30303",
+                # user.conf: 38
+                "88.212.206.70:30303",
+                # user.conf: 39
+                "37.128.191.230:30303",
+                # user.conf: 40
+                "46.20.235.22:30303",
+                # user.conf: 41
+                "216.158.85.185:30303",
+                # user.conf: 42
+                "52.79.241.155:30303",
+                # user.conf: 43
+                "52.78.149.82:30303"
+            ]
+        }
+        # user.conf: 65
+        persist=true
+        # user.conf: 61
+        public {
+            # user.conf: 61
+            home {
+                # user.conf: 61
+                node=true
+            }
+        }
+        # user.conf: 74
+        touchMaxNodes=100
+        # user.conf: 70
+        touchPeriod=600
+        # user.conf: 79
+        workers=8
+    }
+    # user.conf: 85
+    listen {
+        # user.conf: 85
+        port=30303
+    }
+    # user.conf: 122
+    maxActivePeers=30
+    # user.conf: 88
+    networkId=1
+    # user.conf: 137
+    p2p {
+        # user.conf: 147
+        eip8=true
+        # user.conf: 143
+        framing {
+            # user.conf: 143
+            maxSize=32768
+        }
+    }
+    # user.conf: 108
+    trusted=[]
+}
+# user.conf: 439
+play {
+    # user.conf: 439
+    vm=true
+}
+# user.conf: 432-461
+record {
+    # user.conf: 461
+    blocks=false
+    # user.conf: 432
+    internal {
+        # user.conf: 432
+        transactions {
+            # user.conf: 432
+            data=true
+        }
+    }
+}
+# user.conf: 455
+root {
+    # user.conf: 455
+    hash {
+        # user.conf: 455
+        start=null
+    }
+}
+# user.conf: 369
+solc {
+    # user.conf: 372
+    path=null
+}
+# user.conf: 270
+sync {
+    # user.conf: 274
+    enabled=true
+    # user.conf: 325
+    ethash=mixed
+    # user.conf: 312
+    exitOnBlockConflict=false
+    # user.conf: 277
+    fast {
+        # user.conf: 290
+        backupState=false
+        # user.conf: 281
+        enabled=false
+        # user.conf: 294
+        skipHistory=false
+    }
+    # user.conf: 318
+    makeDoneByTimeout=-1
+    # user.conf: 303
+    peer {
+        # user.conf: 303
+        count=30
+    }
+}
+# user.conf: 427
+trace {
+    # user.conf: 427
+    startblock=-1
+}
+# user.conf: 384-388
+transaction {
+    # user.conf: 384
+    approve {
+        # user.conf: 384
+        timeout=15
+    }
+    # user.conf: 388
+    outdated {
+        # user.conf: 388
+        threshold=10
+    }
+}
+# user.conf: 417
+vm {
+    # user.conf: 417
+    structured {
+        # user.conf: 420
+        compressed=true
+        # user.conf: 419
+        dir=vmtrace
+        # user.conf: 421
+        initStorageLimit=10000
+        # user.conf: 418
+        trace=false
+    }
+}
+
+15:29:06.222 INFO [c.i.i.n.NeighborRouterImpl]  starting neighbor router
+15:29:06.226 INFO [c.i.i.n.i.TipsRequesterImpl]  Starting [Tips Requester] (starts in 0ms / runs every 5000ms) ...
+15:29:06.228 INFO [c.i.i.n.i.TipsRequesterImpl]  [Tips Requester] Started (execution #1) ...
+15:29:06.228 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Starting [Latest Milestone Tracker] (starts in 0ms / runs every 1000ms) ...
+15:29:06.228 INFO [c.i.i.n.NeighborRouterImpl]  bound server TCP socket to /0.0.0.0:15602
+15:29:06.229 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  [Latest Milestone Tracker] Started (execution #1) ...
+15:29:06.229 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Starting [Latest Solid Milestone Tracker] (starts in 0ms / runs every 5000ms) ...
+15:29:06.230 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  [Latest Solid Milestone Tracker] Started (execution #1) ...
+15:29:06.230 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  Starting [Seen Milestones Retriever] (starts in 0ms / runs every 1000ms) ...
+15:29:06.230 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 1
+15:29:06.230 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  [Seen Milestones Retriever] Started (execution #1) ...
+15:29:06.231 INFO [c.i.i.s.m.MilestoneSolidifier]  Starting [Milestone Solidifier] (starts in 0ms / runs every 500ms) ...
+15:29:06.231 INFO [c.i.i.n.NeighborRouterImpl]  establishing connections to 1 wanted neighbors [tcp://127.0.0.1:15600]
+15:29:06.231 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  Requesting seen milestones ... [DONE]
+15:29:06.231 INFO [c.i.i.s.m.MilestoneSolidifier]  [Milestone Solidifier] Started (execution #1) ...
+15:29:06.231 INFO [c.i.i.s.m.i.SeenMilestonesRetrieverImpl]  Stopping [Seen Milestones Retriever] ...
+15:29:06.233 INFO [c.i.i.u.t.ThreadUtils]  Starting Thread: Local Snapshots Monitor ...
+15:29:06.234 INFO [c.i.i.u.t.ThreadUtils]  Local Snapshots Monitor [STARTED]
+15:29:06.239 INFO [c.i.i.n.NeighborRouterImpl]  established connection to neighbor 127.0.0.1:15600, now performing handshake...
+15:29:06.241 INFO [c.i.i.n.NeighborRouterImpl]  neighbor connection to 127.0.0.1:15600 is ready for messages [latency 7 ms, protocol version 1]
+15:29:06.241 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Processing milestone candidates ... [DONE]
+15:29:06.243 DEBUG [c.i.i.s.r.r.RestEasy]  Binding JSON-REST API Undertow server on 0.0.0.0:14267
+15:29:06.277 DEBUG [o.j.logging]  Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+15:29:06.279 DEBUG [i.undertow]  starting undertow server io.undertow.Undertow@74a6a609
+15:29:06.284 INFO [o.xnio]  XNIO version 3.3.8.Final
+15:29:06.294 INFO [o.x.nio]  XNIO NIO Implementation Version 3.3.8.Final
+15:29:06.349 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-1', selector sun.nio.ch.EPollSelectorImpl@513ab949
+15:29:06.349 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-2', selector sun.nio.ch.EPollSelectorImpl@55082dcc
+15:29:06.349 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-3', selector sun.nio.ch.EPollSelectorImpl@73755441
+15:29:06.349 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-4', selector sun.nio.ch.EPollSelectorImpl@58e44c6d
+15:29:06.349 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-5', selector sun.nio.ch.EPollSelectorImpl@1c61eb4
+15:29:06.349 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-6', selector sun.nio.ch.EPollSelectorImpl@212efd4b
+15:29:06.349 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-7', selector sun.nio.ch.EPollSelectorImpl@163c951c
+15:29:06.349 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-8', selector sun.nio.ch.EPollSelectorImpl@53d5dbdb
+15:29:06.349 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-9', selector sun.nio.ch.EPollSelectorImpl@3860244b
+15:29:06.350 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-10', selector sun.nio.ch.EPollSelectorImpl@55c3c94c
+15:29:06.350 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-11', selector sun.nio.ch.EPollSelectorImpl@6334a480
+15:29:06.351 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-13', selector sun.nio.ch.EPollSelectorImpl@45c95b8b
+15:29:06.351 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-12', selector sun.nio.ch.EPollSelectorImpl@23ca98f7
+15:29:06.351 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-14', selector sun.nio.ch.EPollSelectorImpl@187096c4
+15:29:06.351 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-15', selector sun.nio.ch.EPollSelectorImpl@75791d68
+15:29:06.351 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-16', selector sun.nio.ch.EPollSelectorImpl@3ca376df
+15:29:06.351 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-17', selector sun.nio.ch.EPollSelectorImpl@2a2b73c8
+15:29:06.351 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-18', selector sun.nio.ch.EPollSelectorImpl@42f039aa
+15:29:06.352 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-19', selector sun.nio.ch.EPollSelectorImpl@160f7768
+15:29:06.352 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-20', selector sun.nio.ch.EPollSelectorImpl@6e0d87
+15:29:06.352 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-21', selector sun.nio.ch.EPollSelectorImpl@2a2731b6
+15:29:06.353 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-22', selector sun.nio.ch.EPollSelectorImpl@54fe1d93
+15:29:06.353 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-23', selector sun.nio.ch.EPollSelectorImpl@1080c6fd
+15:29:06.353 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-24', selector sun.nio.ch.EPollSelectorImpl@11840e3a
+15:29:06.353 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-25', selector sun.nio.ch.EPollSelectorImpl@902bb90
+15:29:06.353 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-26', selector sun.nio.ch.EPollSelectorImpl@1336e24e
+15:29:06.353 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-27', selector sun.nio.ch.EPollSelectorImpl@10185092
+15:29:06.354 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-28', selector sun.nio.ch.EPollSelectorImpl@49aa5a40
+15:29:06.354 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-29', selector sun.nio.ch.EPollSelectorImpl@232d7dd2
+15:29:06.354 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 I/O-30', selector sun.nio.ch.EPollSelectorImpl@4ea782df
+15:29:06.354 DEBUG [o.x.nio]  Started channel thread 'XNIO-1 Accept', selector sun.nio.ch.EPollSelectorImpl@34abaad7
+15:29:06.355 DEBUG [i.undertow]  Configuring listener with protocol HTTP for interface 0.0.0.0 and port 14267
+15:29:06.414 DEBUG [i.u.session]  Setting default session timeout to 1800
+15:29:06.419 DEBUG [i.u.session]  Registered session listener io.undertow.servlet.core.SessionListenerBridge@21d8bcbe
+15:29:06.493 DEBUG [o.j.r.r.i18n]  Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+15:29:06.497 DEBUG [o.j.r.r.i18n]  Provider : org.jboss.resteasy.plugins.providers.DocumentProvider,  Method : DocumentProvider
+15:29:06.511 INFO [o.j.r.r.i18n]  RESTEASY002225: Deploying javax.ws.rs.core.Application: class com.iota.iri.service.restserver.resteasy.RestEasy
+15:29:06.513 INFO [c.i.i.IRI$IRILauncher]  IOTA Node initialised correctly.
+15:29:16.231 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 2
+15:29:26.232 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 4
+15:29:26.344 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #0 to #18
+15:29:27.777 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 2.0% (processed 4 / max possible 192), cycles 3, avg. cycle time 7185.0ms
+15:29:28.745 INFO [c.i.i.s.m.MilestoneSolidifier]  Solidifying milestone #16 [3 / 3]
+15:29:36.233 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 2 , toReply = 0 / totalTransactions = 12
+15:29:37.764 INFO [c.i.i.s.m.MilestoneSolidifier]  Solidifying milestone #16 [5 / 5]
+15:29:43.780 INFO [c.i.i.s.m.MilestoneSolidifier]  Solidifying milestone #16 [8 / 8]
+15:29:46.234 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 2 , toReply = 0 / totalTransactions = 20
+15:29:47.801 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 1.0% (processed 17 / max possible 1088), cycles 17, avg. cycle time 1177.0ms
+15:29:52.808 INFO [c.i.i.s.m.MilestoneSolidifier]  Solidifying milestone #10 [9 / 9]
+15:29:56.235 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 2 , toReply = 0 / totalTransactions = 28
+15:29:58.833 INFO [c.i.i.s.m.MilestoneSolidifier]  Solidifying milestone #11 [13 / 13]
+15:30:04.861 INFO [c.i.i.s.m.MilestoneSolidifier]  Solidifying milestone #11 [13 / 13]
+15:30:06.236 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 2 , toReply = 0 / totalTransactions = 34
+15:30:07.804 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 1.0% (processed 14 / max possible 896), cycles 14, avg. cycle time 1428.0ms
+15:30:09.853 DEBUG [i.u.request]  Matched default handler path /
+15:30:09.867 DEBUG [i.u.r.security]  Attempting to authenticate /, authentication required: false
+15:30:09.868 DEBUG [i.u.r.security]  Authentication outcome was NOT_ATTEMPTED with method io.undertow.security.impl.CachedAuthenticatedSessionMechanism@3fcbe1bb for /
+15:30:09.868 DEBUG [i.u.r.security]  Authentication result was ATTEMPTED for /
+15:30:09.868 DEBUG [i.u.request]  Matched default handler path /
+15:30:09.880 DEBUG [c.i.i.s.API]  # 1 -> Requesting command 'getStorage'
+15:30:09.883 ERROR [c.i.i.s.API]  API Exception: java.lang.NullPointerException
+15:30:09.888 DEBUG [i.u.r.error-response]  Setting error code 500 for exchange HttpServerExchange{ POST /}
+java.lang.RuntimeException: null
+	at io.undertow.server.HttpServerExchange.setStatusCode(HttpServerExchange.java:1410)
+	at com.iota.iri.service.restserver.resteasy.RestEasy.sendResponse(RestEasy.java:243)
+	at com.iota.iri.service.restserver.resteasy.RestEasy.processRequest(RestEasy.java:303)
+	at com.iota.iri.service.restserver.resteasy.RestEasy.access$100(RestEasy.java:59)
+	at com.iota.iri.service.restserver.resteasy.RestEasy$2.handleRequest(RestEasy.java:186)
+	at io.undertow.server.handlers.PathHandler.handleRequest(PathHandler.java:91)
+	at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:132)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AuthenticationMechanismsHandler.handleRequest(AuthenticationMechanismsHandler.java:60)
+	at io.undertow.servlet.handlers.security.CachedAuthenticatedSessionHandler.handleRequest(CachedAuthenticatedSessionHandler.java:77)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:269)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:78)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:133)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:130)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:249)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:78)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:99)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:376)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:830)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+15:30:11.234 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 1
+15:30:11.242 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.247 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Latest SOLID milestone index changed from #0 to #1
+15:30:11.248 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 2
+15:30:11.251 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.253 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 3
+15:30:11.255 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.258 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 4
+15:30:11.518 INFO [c.i.i.s.l.i.LedgerServiceImpl]  Smart contract 0x9400C03CEC29189CBEFA1CF70ADD8E76F16EBE17
+15:30:11.522 INFO [c.i.i.TransactionExecutor]  call
+15:30:11.528 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.533 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 5
+15:30:11.534 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.537 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 6
+15:30:11.545 INFO [c.i.i.s.l.i.LedgerServiceImpl]  Smart contract 0xD60A6102A8065AB1C8FED658A0295588CF13BFA4
+15:30:11.552 INFO [c.i.i.s.l.i.LedgerServiceImpl]  Smart contract 0x2C547DC544B3F5F07D85B5F951313A544B57C9FA
+15:30:11.559 INFO [c.i.i.s.l.i.LedgerServiceImpl]  Smart contract 0xC53DC70E65D6991A7A49B4870E9404220464B020
+15:30:11.562 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.566 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 7
+15:30:11.568 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.570 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 8
+15:30:11.576 INFO [c.i.i.s.l.i.LedgerServiceImpl]  Smart contract 0x6A1505B576F4B747E796E164F238D650D41926D5
+15:30:11.579 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.580 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 9
+15:30:11.581 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.582 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 10
+15:30:11.588 INFO [c.i.i.s.l.i.LedgerServiceImpl]  Smart contract 0xA5CA1B03B0BB897D82846DEB7BCCDB0226658BF5
+15:30:11.591 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.591 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 11
+15:30:11.595 INFO [c.i.i.s.l.i.LedgerServiceImpl]  Smart contract 0xBF199D8013989DF99E58932D28B0017D58D55A51
+15:30:11.596 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.597 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 12
+15:30:11.599 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.599 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 13
+15:30:11.601 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.601 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 14
+15:30:11.604 INFO [c.i.i.s.l.i.LedgerServiceImpl]  Smart contract 0x30C05EAB0542A90ED09CEA0C60C628941F251EBD
+15:30:11.605 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.606 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 15
+15:30:11.607 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.607 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 16
+15:30:11.608 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.609 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 17
+15:30:11.610 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:11.611 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 18
+15:30:11.611 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:16.237 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 46
+15:30:22.512 DEBUG [i.u.request]  Matched default handler path /
+15:30:22.513 DEBUG [i.u.r.security]  Attempting to authenticate /, authentication required: false
+15:30:22.513 DEBUG [i.u.r.security]  Authentication outcome was NOT_ATTEMPTED with method io.undertow.security.impl.CachedAuthenticatedSessionMechanism@3fcbe1bb for /
+15:30:22.513 DEBUG [i.u.r.security]  Authentication result was ATTEMPTED for /
+15:30:22.513 DEBUG [i.u.request]  Matched default handler path /
+15:30:22.513 DEBUG [c.i.i.s.API]  # 2 -> Requesting command 'getStorage'
+15:30:26.238 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 46
+15:30:27.058 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #18 to #19
+15:30:27.948 DEBUG [i.u.request]  Matched default handler path /
+15:30:27.948 DEBUG [i.u.r.security]  Attempting to authenticate /, authentication required: false
+15:30:27.948 DEBUG [i.u.r.security]  Authentication outcome was NOT_ATTEMPTED with method io.undertow.security.impl.CachedAuthenticatedSessionMechanism@3fcbe1bb for /
+15:30:27.948 DEBUG [i.u.r.security]  Authentication result was ATTEMPTED for /
+15:30:27.948 DEBUG [i.u.request]  Matched default handler path /
+15:30:27.949 DEBUG [c.i.i.s.API]  # 3 -> Requesting command 'getTransactionsToApprove'
+15:30:27.953 DEBUG [c.i.i.s.t.Walker]  5 tails traversed to find tip
+15:30:27.954 DEBUG [c.i.i.s.t.Walker]  5 tails traversed to find tip
+15:30:27.966 DEBUG [i.u.request]  Matched default handler path /
+15:30:27.967 DEBUG [i.u.r.security]  Attempting to authenticate /, authentication required: false
+15:30:27.967 DEBUG [i.u.r.security]  Authentication outcome was NOT_ATTEMPTED with method io.undertow.security.impl.CachedAuthenticatedSessionMechanism@3fcbe1bb for /
+15:30:27.967 DEBUG [i.u.r.security]  Authentication result was ATTEMPTED for /
+15:30:27.967 DEBUG [i.u.request]  Matched default handler path /
+15:30:27.967 DEBUG [c.i.i.s.API]  # 4 -> Requesting command 'attachToTangle'
+15:30:28.027 DEBUG [i.u.request]  Matched default handler path /
+15:30:28.027 DEBUG [i.u.r.security]  Attempting to authenticate /, authentication required: false
+15:30:28.027 DEBUG [i.u.r.security]  Authentication outcome was NOT_ATTEMPTED with method io.undertow.security.impl.CachedAuthenticatedSessionMechanism@3fcbe1bb for /
+15:30:28.027 DEBUG [i.u.r.security]  Authentication result was ATTEMPTED for /
+15:30:28.027 DEBUG [i.u.request]  Matched default handler path /
+15:30:28.028 DEBUG [c.i.i.s.API]  # 5 -> Requesting command 'storeTransactions'
+15:30:28.039 DEBUG [i.u.request]  Matched default handler path /
+15:30:28.040 DEBUG [i.u.r.security]  Attempting to authenticate /, authentication required: false
+15:30:28.040 DEBUG [i.u.r.security]  Authentication outcome was NOT_ATTEMPTED with method io.undertow.security.impl.CachedAuthenticatedSessionMechanism@3fcbe1bb for /
+15:30:28.040 DEBUG [i.u.r.security]  Authentication result was ATTEMPTED for /
+15:30:28.040 DEBUG [i.u.request]  Matched default handler path /
+15:30:28.040 DEBUG [c.i.i.s.API]  # 6 -> Requesting command 'broadcastTransactions'
+15:30:28.067 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 1.0% (processed 13 / max possible 768), cycles 12, avg. cycle time 1688.0ms
+15:30:28.076 DEBUG [i.u.request]  Matched default handler path /
+15:30:28.076 DEBUG [i.u.r.security]  Attempting to authenticate /, authentication required: false
+15:30:28.076 DEBUG [i.u.r.security]  Authentication outcome was NOT_ATTEMPTED with method io.undertow.security.impl.CachedAuthenticatedSessionMechanism@3fcbe1bb for /
+15:30:28.076 DEBUG [i.u.r.security]  Authentication result was ATTEMPTED for /
+15:30:28.076 DEBUG [i.u.request]  Matched default handler path /
+15:30:28.077 DEBUG [c.i.i.s.API]  # 7 -> Requesting command 'findTransactions'
+15:30:31.613 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 19
+15:30:31.614 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:30:31.614 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Latest SOLID milestone index changed from #18 to #19
+15:30:36.239 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 49
+15:30:46.240 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 49
+15:30:56.241 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 49
+15:31:06.242 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 49
+15:31:16.243 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 49
+15:31:26.244 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 49
+15:31:26.541 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 3.0% (processed 2 / max possible 64), cycles 1, avg. cycle time 58473.0ms
+15:31:27.138 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #19 to #20
+15:31:31.617 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 20
+15:31:31.620 INFO [c.i.i.s.l.i.LedgerServiceImpl]  Smart contract 0x75A80D2052820374B3C7612FE008735E2BC091D5
+15:31:31.621 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:31:31.621 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Latest SOLID milestone index changed from #19 to #20
+15:31:36.245 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 51
+15:31:51.246 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 51
+15:32:06.247 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 51
+15:32:16.248 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 51
+15:32:26.249 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 51
+15:32:26.709 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 3.0% (processed 2 / max possible 64), cycles 1, avg. cycle time 60168.0ms
+15:32:27.218 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #20 to #21
+15:32:31.624 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 21
+15:32:31.625 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:32:31.626 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Latest SOLID milestone index changed from #20 to #21
+15:32:41.250 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 53
+15:32:51.251 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 53
+15:33:01.252 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 53
+15:33:11.253 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 53
+15:33:21.254 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 53
+15:33:26.871 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 3.0% (processed 2 / max possible 64), cycles 1, avg. cycle time 60162.0ms
+15:33:27.301 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #21 to #22
+15:33:31.255 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 55
+15:33:31.628 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 22
+15:33:31.630 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:33:31.630 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Latest SOLID milestone index changed from #21 to #22
+15:33:46.256 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 55
+15:33:56.257 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 55
+15:34:11.258 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 55
+15:34:21.259 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 55
+15:34:27.061 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 3.0% (processed 2 / max possible 64), cycles 1, avg. cycle time 60190.0ms
+15:34:27.383 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #22 to #23
+15:34:31.260 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 57
+15:34:31.633 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 23
+15:34:31.634 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:34:31.634 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Latest SOLID milestone index changed from #22 to #23
+15:34:46.261 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 57
+15:35:01.262 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 57
+15:35:11.263 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 57
+15:35:21.264 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 57
+15:35:27.225 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 3.0% (processed 2 / max possible 64), cycles 1, avg. cycle time 60163.0ms
+15:35:27.506 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #23 to #24
+15:35:31.637 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 24
+15:35:31.638 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:35:31.638 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Latest SOLID milestone index changed from #23 to #24
+15:35:36.265 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 59
+15:35:51.266 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 59
+15:36:01.267 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 59
+15:36:16.268 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 59
+15:36:26.269 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 59
+15:36:27.415 INFO [c.i.i.c.b.BatchedBCTCurl]  batching saturation ratio 3.0% (processed 2 / max possible 64), cycles 1, avg. cycle time 60190.0ms
+15:36:27.590 INFO [c.i.i.s.m.i.LatestMilestoneTrackerImpl]  Latest milestone has changed from #24 to #25
+15:36:31.640 DEBUG [c.i.i.s.l.i.LedgerServiceImpl]  applying milestone 25
+15:36:31.641 INFO [c.i.i.s.l.i.LedgerServiceImpl]  [Contract] contract db commited
+15:36:31.642 INFO [c.i.i.s.m.i.LatestSolidMilestoneTrackerImpl]  Latest SOLID milestone index changed from #24 to #25
+15:36:41.269 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 61
+15:36:51.270 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 61
+15:37:01.271 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 61
+15:37:11.272 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 61
+15:37:21.273 INFO [c.i.i.n.i.TipsRequesterImpl]  toProcess = 0 , toBroadcast = 0 , toRequest = 0 , toReply = 0 / totalTransactions = 61
+15:37:25.871 WARN [c.i.i.n.NeighborRouterImpl]  unable to read message from neighbor 127.0.0.1:15600. reason: Connection reset by peer
+15:37:25.871 INFO [c.i.i.n.NeighborRouterImpl]  removed neighbor 127.0.0.1:15600 from connected neighbors
+15:37:25.872 INFO [c.i.i.n.NeighborRouterImpl]  adding tcp://127.0.0.1:15600 to the reconnect pool
+15:37:27.546 INFO [c.i.i.IRI$IRILauncher]  Shutting down IOTA node, please hold tight...
