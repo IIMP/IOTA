@@ -22,14 +22,6 @@ import com.iota.iri.utils.Converter;
 import com.iota.iri.utils.dag.DAGHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-/*threshold signature*/
-import org.bitcoin.NativeSecp256k1Util.*;
-import org.bitcoin.NativeSecp256k1;
-import org.bitcoin.Secp256k1Context;
-import com.google.common.io.BaseEncoding;
-import java.util.Arrays;
-import java.math.BigInteger;
-import javax.xml.bind.DatatypeConverter;
 
 import java.nio.ByteBuffer;
 import java.util.HashSet;
@@ -181,9 +173,10 @@ public class MilestoneServiceImpl implements MilestoneService {
                     //the signed transaction - which references the confirmed transactions and contains
                     // the Merkle tree siblings.
                     int coordinatorSecurityLevel = config.getCoordinatorSecurityLevel();
+
                     if (isMilestoneBundleStructureValid(bundleTransactions, coordinatorSecurityLevel)) {
                         final TransactionViewModel siblingsTx = bundleTransactions
-                                .get(coordinatorSecurityLevel+1);
+                                .get(coordinatorSecurityLevel);
 
                         //milestones sign the normalized hash of the sibling transaction.
                         byte[] signedHash = ISS.normalizedBundle(siblingsTx.getHash().trits());
@@ -208,9 +201,6 @@ public class MilestoneServiceImpl implements MilestoneService {
                                 siblingsTx.trits(), 0, milestoneIndex, config.getNumberOfKeysInMilestone());
                         boolean skipValidation = config.isTestnet() && config.isDontValidateTestnetMilestoneSig();
                         if (skipValidation || config.getCoordinator().equals(HashFactory.ADDRESS.create(merkleRoot))) {
-                            if(!checkThresholeSignature(bundleTransactions.get(1).getSignature())){
-                                return INVALID;
-                            }
                             MilestoneViewModel newMilestoneViewModel = new MilestoneViewModel(milestoneIndex,
                                     transactionViewModel.getHash());
                             newMilestoneViewModel.store(tangle);
@@ -225,10 +215,9 @@ public class MilestoneServiceImpl implements MilestoneService {
 
                                  resetCorruptedMilestone(milestoneIndex);
                             }
-                            System.out.println("VALID MILESTONE");
+
                             return VALID;
                         } else {
-                            
                             return INVALID;
                         }
                     }
@@ -513,67 +502,11 @@ public class MilestoneServiceImpl implements MilestoneService {
             return false;
         }
 
-        Hash headTransactionHash = bundleTransactions.get(securityLevel+1).getTrunkTransactionHash();
+        Hash headTransactionHash = bundleTransactions.get(securityLevel).getTrunkTransactionHash();
         return bundleTransactions.stream()
                 .limit(securityLevel)
                 .map(TransactionViewModel::getBranchTransactionHash)
                 .allMatch(branchTransactionHash -> branchTransactionHash.equals(headTransactionHash));
-    }
-    private boolean checkThresholeSignature(byte[] thresholeSignature){
-        String[] pubstr = {"039f89215177475ac408d079b45acef4591fc477dd690f2467df052cf0c7baba23","0278740a5bec75e333b3c93965b1609163b15d2e3c2fdef141d4859ec70c238e7a","0269eb606576a315a630c2483deed35cc4bd845abae1c693f97c440c89503fa92e","03e6911bf17e632eecdfa0dc9fc6efc9ddca60c0e3100db469a3d3d62008044a53"};
-        String tmp = Converter.trytes(thresholeSignature);
-        String dic = "ABCDEFGHIJKLMNOPQRSTUVWXYZ9"; 
-        int lenOfTmp = 0;
-        for(int i = 0; i < 3; i++){
-            lenOfTmp = lenOfTmp * 27 + dic.indexOf(tmp.charAt(i));
-        }
-        byte[] msg = new byte[lenOfTmp];
-        for(int i = 3; i < 3 + lenOfTmp * 2; i+=2){
-            int nedd = (dic.indexOf(tmp.charAt(i)) * 27 + dic.indexOf(tmp.charAt(i + 1)));
-            msg[(i - 3) / 2] = (byte)(dic.indexOf(tmp.charAt(i)) * 27 + dic.indexOf(tmp.charAt(i + 1)));
-        }
-        byte[] data = new byte[32];
-        for(int i = 0; i < 32; i++){
-            data[i] = msg[i];
-        }
-        int itr = 32;
-        int thresholdSize = 0;
-        for(int i = 0; i < 3; i++){
-            int seq = (int)msg[itr];
-            System.out.println("number of node:" + String.valueOf(seq));
-            itr ++;
-            int len = (int)msg[itr];
-            System.out.println("leng of sig:" + String.valueOf(len));
-            itr ++;
-            byte[] sig = new byte[len];
-            System.arraycopy(msg, itr, sig, 0, len);
-            
-            itr += len;
-            byte[] pub = BaseEncoding.base16().lowerCase().decode(pubstr[seq]);
-            
-            try{
-                if(NativeSecp256k1.verify( data, sig, pub)){
-                    thresholdSize ++;
-                }
-            }catch(Exception e){
-
-            }
-        }
-        if(thresholdSize>=2){
-            return true;
-        }
-        /*boolean result = false;
-        byte[] data = BaseEncoding.base16().lowerCase().decode("CF80CD8AED482D5D1527D7DC72FCEFF84E6326592848447D2DC0B0E87DFC9A90".toLowerCase()); //sha256hash of "testing"
-        byte[] sig = BaseEncoding.base16().lowerCase().decode("3044022079BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F817980220294F14E883B3F525B5367756C2A11EF6CF84B730B36C17CB0C56F0AAB2C98589".toLowerCase());
-        byte[] pub = BaseEncoding.base16().lowerCase().decode("040A629506E1B65CD9D2E0BA9C75DF9C4FED0DB16DC9625ED14397F0AFC836FAE595DC53F8B0EFE61E703075BD9B143BAC75EC0E19F82A2208CAEB32BE53414C40".toLowerCase());
-        
-            result = NativeSecp256k1.verify( data, sig, pub);    
-        }catch(Exception e){
-
-        }
-        
-        System.out.println(String.valueOf(result));*/
-        return false;
     }
 
     /**
