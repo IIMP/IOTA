@@ -18,5 +18,5 @@ java -jar /root/IOTA/iri/target/iri-1.8.4.jar \
        --snapshot /root/IOTA/compass/docs/private_tangle/snapshot.txt \
        --max-depth 1000 \
        --port ${current_dir##*/} \
-       --neighbors "tcp://127.0.0.1:15600" \
+       --neighbors "tcp://127.0.0.1:15601" \
        -t 15602

@@ -61,6 +61,7 @@ java_binary(
         "//compass/sign:common",
         "//compass/sign:helper",
         "//compass/sign:remote",
+        "//compass/BFT",
         "@com_beust_jcommander//jar",
         "@org_iota_jota//jar",
         # "@jota_jota//jar",

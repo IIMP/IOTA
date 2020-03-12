@@ -25,6 +25,7 @@ public class TestnetConfig extends BaseIotaConfig {
     protected int transactionPacketSize = Defaults.PACKET_SIZE;
     protected int requestHashSize = Defaults.REQUEST_HASH_SIZE;
     protected SpongeFactory.Mode coordinatorSignatureMode = Defaults.COORDINATOR_SIGNATURE_MODE;
+    protected boolean designable = Defaults.IS_DESIGNABLE_COO;
 
     public TestnetConfig() {
         super();
@@ -32,6 +33,9 @@ public class TestnetConfig extends BaseIotaConfig {
         dbLogPath = Defaults.DB_LOG_PATH;
     }
 
+    public boolean getDesignable() {
+        return designable;
+    }
     @Override
     public boolean isTestnet() {
         return true;
@@ -108,6 +112,12 @@ public class TestnetConfig extends BaseIotaConfig {
     @Parameter(names = "--snapshot", description = SnapshotConfig.Descriptions.SNAPSHOT_FILE)
     protected void setSnapshotFile(String snapshotFile) {
         this.snapshotFile = snapshotFile;
+    }
+
+    @JsonProperty
+    @Parameter(names = "--designable", description = "make coordinator designable")
+    protected void setDesignable(boolean designable) {
+        this.designable = designable;
     }
 
     @Override
@@ -191,6 +201,7 @@ public class TestnetConfig extends BaseIotaConfig {
         SpongeFactory.Mode COORDINATOR_SIGNATURE_MODE = SpongeFactory.Mode.CURLP27;
         int KEYS_IN_MILESTONE = 22;
         int MAX_MILESTONE_INDEX = 1 << KEYS_IN_MILESTONE;
+        boolean IS_DESIGNABLE_COO = true;
 
         String SNAPSHOT_FILE = "/snapshotTestnet.txt";
         int REQUEST_HASH_SIZE = 49;

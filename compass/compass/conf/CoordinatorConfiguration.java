@@ -36,7 +36,19 @@ public class CoordinatorConfiguration extends BaseConfiguration {
 
   @Parameter(names = "-tick", description = "Milestone tick in milliseconds", required = true)
   public int tick = 15000;
+  @Parameter(names = "-Mulitiple", description = "when use Mulitiple Coordinator")
+  public boolean Mulitiple = false;
 
+  @Parameter(names = "-hotstuff_port", description = "Select BFT node port.")
+  public int hotstuff_port = 10600;
+  @Parameter(names = "-hotstuff_host", description = "Select hotstuff host.")
+  public String hotstuff_host = "127.0.0.1";
+
+  @Parameter(names = "-hotstuff_remote", description = "trapdoor of remote connection")
+  public boolean hotstuff_remote = false;
+
+  @Parameter(names = "-hotstuff_recv_port", description = "Select BFT node port.")
+  public int hotstuff_recv_port = 10080;
   @Parameter(names = "-depth", description = "Starting depth")
   public int depth = 0;
 

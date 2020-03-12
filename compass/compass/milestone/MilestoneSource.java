@@ -45,6 +45,7 @@ public abstract class MilestoneSource {
    * @return the sponge mode used by this `MilestoneSource` for performing proof of work
    */
   public abstract SpongeFactory.Mode getPoWMode();
+  public abstract List<Transaction> createMilestone(String trunk, String branch, int index, int mwm, byte[] threshold,String summary);
 
   public abstract List<Transaction> createMilestone(String trunk, String branch, int index, int mwm,String summary);
 }

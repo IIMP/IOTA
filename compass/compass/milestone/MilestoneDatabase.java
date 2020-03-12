@@ -170,6 +170,152 @@ public class MilestoneDatabase extends MilestoneSource {
     return Strings.padEnd(tag, 27, '9');
   }
 
+  private String getTrytesFromBytes(byte[] src){
+    /*
+    len:3 Trytes
+    1 byte: 2 Trytes;
+    */
+    int tmmp = src.length;
+    StringBuilder ans = new StringBuilder();
+    String dic = "ABCDEFGHIJKLMNOPQRSTUVWXYZ9"; 
+    ans.append(dic.charAt(tmmp/(27*27)));
+    ans.append(dic.charAt((tmmp%(27*27))/27));
+    ans.append(dic.charAt(tmmp%27));
+    for(int i = 0; i < src.length; i++){
+      int tmp;
+      if(src[i]<0){
+        tmp=src[i]&0xff;
+      }else{
+        tmp=src[i];
+      }
+      ans.append(dic.charAt(tmp/27));
+      ans.append(dic.charAt(tmp%27));
+    }
+    return ans.toString();
+  }
+  @Override
+  public List<Transaction> createMilestone(String trunk, String branch, int index, int mwm, byte[] threshold,String summary) {
+    System.out.println("===================Summary is "+summary+"======================");
+
+
+    String thresholdStr = Strings.padEnd(getTrytesFromBytes(threshold), ISS.FRAGMENT_LENGTH / ISS.TRYTE_WIDTH, '9');
+    IotaPoW pow = getPoWProvider();
+
+    // Get the siblings in the current merkle tree
+    List<String> leafSiblings = siblings(index, layers);
+    String siblingsTrytes = String.join("", leafSiblings);
+    String paddedSiblingsTrytes = Strings.padEnd(siblingsTrytes, ISS.FRAGMENT_LENGTH / ISS.TRYTE_WIDTH, '9');
+
+    final String tag = getTagForIndex(index);
+
+    // A milestone consists of two transactions.
+    // The last transaction (currentIndex == lastIndex) contains the siblings for the merkle tree.
+    Transaction txSiblings = new Transaction();
+    txSiblings.setSignatureFragments(paddedSiblingsTrytes);
+    txSiblings.setAddress(EMPTY_HASH);
+    txSiblings.setCurrentIndex(2);
+    txSiblings.setLastIndex(2);
+    txSiblings.setTimestamp(System.currentTimeMillis() / 1000);
+    txSiblings.setObsoleteTag(EMPTY_TAG);
+    txSiblings.setValue(0);
+    txSiblings.setBundle(EMPTY_HASH);
+    txSiblings.setTrunkTransaction(trunk);
+    txSiblings.setBranchTransaction(branch);
+    String siblingTag = Strings.padEnd(summary, 27, '9');
+    txSiblings.setTag(siblingTag);
+    txSiblings.setNonce(EMPTY_TAG);
+
+    Transaction thresholdSignData = new Transaction();
+    thresholdSignData.setSignatureFragments(thresholdStr);
+    thresholdSignData.setAddress(EMPTY_HASH);
+    thresholdSignData.setCurrentIndex(1);
+    thresholdSignData.setLastIndex(2);
+    thresholdSignData.setTimestamp(System.currentTimeMillis() / 1000);
+    thresholdSignData.setObsoleteTag(EMPTY_TAG);
+    thresholdSignData.setValue(0);
+    thresholdSignData.setBundle(EMPTY_HASH);
+    thresholdSignData.setTrunkTransaction(EMPTY_HASH);
+    thresholdSignData.setBranchTransaction(trunk);
+    thresholdSignData.setTag(EMPTY_TAG);
+    thresholdSignData.setNonce(EMPTY_TAG);
+    // The other transactions contain a signature that signs the siblings and thereby ensures the integrity.
+    List<Transaction> txs =
+        IntStream.range(0, signatureSource.getSecurity()).mapToObj(i -> {
+          Transaction tx = new Transaction();
+          tx.setSignatureFragments(Strings.repeat("9", 27 * 81));
+          tx.setAddress(root);
+          tx.setCurrentIndex(i);
+          tx.setLastIndex(2);
+          tx.setTimestamp(System.currentTimeMillis() / 1000);
+          tx.setObsoleteTag(tag);
+          tx.setValue(0);
+          tx.setBundle(EMPTY_HASH);
+          tx.setTrunkTransaction(EMPTY_HASH);
+          tx.setBranchTransaction(trunk);
+          tx.setTag(tag);
+          tx.setNonce(EMPTY_TAG);
+          return tx;
+        }).collect(Collectors.toList());
+    txs.add(thresholdSignData);
+    txs.add(txSiblings);
+    /*
+    * new add code
+    */
+
+
+    Transaction tPoW;
+    String hashToSign;
+
+    //calculate the bundle hash (same for Curl & Kerl)
+    String bundleHash = calculateBundleHash(txs);
+    txs.forEach(tx -> tx.setBundle(bundleHash));
+
+    txSiblings.setAttachmentTimestamp(System.currentTimeMillis());
+    tPoW = new Transaction(pow.performPoW(txSiblings.toTrytes(), mwm));
+    txSiblings.setAttachmentTimestamp(tPoW.getAttachmentTimestamp());
+    txSiblings.setAttachmentTimestampLowerBound(tPoW.getAttachmentTimestampLowerBound());
+    txSiblings.setAttachmentTimestampUpperBound(tPoW.getAttachmentTimestampUpperBound());
+    txSiblings.setNonce(tPoW.getNonce());
+
+    // We need to avoid the M bug we we are signing with KERL
+    if (signatureSource.getSignatureMode() == SpongeFactory.Mode.KERL) {
+      /*
+      In the case that the signature is created using KERL, we need to ensure that there exists no 'M'(=13) in the
+      normalized fragment that we're signing.
+       */
+      boolean hashContainsM;
+      int attempts = 0;
+      do {
+        int[] hashTrits = Hasher.hashTrytesToTrits(powMode, txSiblings.toTrytes());
+        int[] normHash = ISS.normalizedBundle(hashTrits);
+
+        hashContainsM = Arrays.stream(normHash).limit(ISS.NUMBER_OF_FRAGMENT_CHUNKS * signatureSource.getSecurity()).anyMatch(elem -> elem == 13);
+        if (hashContainsM) {
+          txSiblings.setAttachmentTimestamp(System.currentTimeMillis());
+          tPoW = new Transaction(pow.performPoW(txSiblings.toTrytes(), mwm));
+          txSiblings.setAttachmentTimestamp(tPoW.getAttachmentTimestamp());
+          txSiblings.setAttachmentTimestampLowerBound(tPoW.getAttachmentTimestampLowerBound());
+          txSiblings.setAttachmentTimestampUpperBound(tPoW.getAttachmentTimestampUpperBound());
+          txSiblings.setNonce(tPoW.getNonce());
+        }
+        attempts++;
+      } while (hashContainsM);
+
+      log.info("KERL milestone generation took {} attempts.", attempts);
+
+    }
+
+    hashToSign = Hasher.hashTrytes(powMode, txSiblings.toTrytes());
+    String signature = signatureSource.getSignature(index, hashToSign);
+    txSiblings.setHash(hashToSign);
+
+    validateSignature(root, index, hashToSign, signature, siblingsTrytes);
+
+    chainTransactionsFillSignatures(mwm, txs, signature);
+
+    return txs;
+  }
+
   @Override
   public List<Transaction> createMilestone(String trunk, String branch, int index, int mwm,String summary) {
     System.out.println("===================Summary is "+summary+"======================");
@@ -186,8 +332,10 @@ public class MilestoneDatabase extends MilestoneSource {
     Transaction txSiblings = new Transaction();
     txSiblings.setSignatureFragments(paddedSiblingsTrytes);
     txSiblings.setAddress(EMPTY_HASH);
-    txSiblings.setCurrentIndex(signatureSource.getSecurity());
-    txSiblings.setLastIndex(signatureSource.getSecurity());
+    // txSiblings.setCurrentIndex(signatureSource.getSecurity());
+    txSiblings.setCurrentIndex(2);
+    // txSiblings.setLastIndex(signatureSource.getSecurity());
+    txSiblings.setLastIndex(2);
     txSiblings.setTimestamp(System.currentTimeMillis() / 1000);
     txSiblings.setObsoleteTag(EMPTY_TAG);
     txSiblings.setValue(0);
@@ -197,6 +345,22 @@ public class MilestoneDatabase extends MilestoneSource {
     String siblingTag = Strings.padEnd(summary, 27, '9');
     txSiblings.setTag(siblingTag);
     txSiblings.setNonce(EMPTY_TAG);
+    
+
+
+    Transaction thresholdSignData = new Transaction();
+    thresholdSignData.setSignatureFragments(Strings.repeat("9", 27 * 81));
+    thresholdSignData.setAddress(EMPTY_HASH);
+    thresholdSignData.setCurrentIndex(1);
+    thresholdSignData.setLastIndex(2);
+    thresholdSignData.setTimestamp(System.currentTimeMillis() / 1000);
+    thresholdSignData.setObsoleteTag(EMPTY_TAG);
+    thresholdSignData.setValue(0);
+    thresholdSignData.setBundle(EMPTY_HASH);
+    thresholdSignData.setTrunkTransaction(EMPTY_HASH);
+    thresholdSignData.setBranchTransaction(trunk);
+    thresholdSignData.setTag(EMPTY_TAG);
+    thresholdSignData.setNonce(EMPTY_TAG);
 
     // The other transactions contain a signature that signs the siblings and thereby ensures the integrity.
     List<Transaction> txs =
@@ -205,7 +369,8 @@ public class MilestoneDatabase extends MilestoneSource {
           tx.setSignatureFragments(Strings.repeat("9", 27 * 81));
           tx.setAddress(root);
           tx.setCurrentIndex(i);
-          tx.setLastIndex(signatureSource.getSecurity());
+          // tx.setLastIndex(signatureSource.getSecurity());
+          tx.setLastIndex(2);
           tx.setTimestamp(System.currentTimeMillis() / 1000);
           tx.setObsoleteTag(tag);
           tx.setValue(0);
@@ -217,10 +382,9 @@ public class MilestoneDatabase extends MilestoneSource {
           return tx;
         }).collect(Collectors.toList());
 
+    txs.add(thresholdSignData);
     txs.add(txSiblings);
-    for(Transaction tx : txs){
-      System.out.println(tx.getTag());
-    }
+
 
     Transaction tPoW;
     String hashToSign;
@@ -317,10 +481,15 @@ public class MilestoneDatabase extends MilestoneSource {
 
     txs.stream().skip(1).forEach(tx -> {
       //copy signature fragment
-      String sigFragment = signature.substring((int) (tx.getCurrentIndex() * SIGNATURE_LENGTH),
-          (int) (tx.getCurrentIndex() + 1) * SIGNATURE_LENGTH);
-      tx.setSignatureFragments(sigFragment);
-
+      // String sigFragment = signature.substring((int) (tx.getCurrentIndex() * SIGNATURE_LENGTH),
+      //     (int) (tx.getCurrentIndex() + 1) * SIGNATURE_LENGTH);
+      // tx.setSignatureFragments(sigFragment);
+      if((int)tx.getCurrentIndex() == 0){
+        String sigFragment = signature.substring((int) (tx.getCurrentIndex() * SIGNATURE_LENGTH),
+        (int) (tx.getCurrentIndex() + 1) * SIGNATURE_LENGTH);
+        tx.setSignatureFragments(sigFragment);
+      }
+      System.out.println(tx.getLastIndex() + " and "+ tx.getCurrentIndex() + " and " + (int) (tx.getLastIndex() - tx.getCurrentIndex() - 1));
       //chain bundle
       String prevHash = txs.get((int) (tx.getLastIndex() - tx.getCurrentIndex() - 1)).getHash();
       tx.setTrunkTransaction(prevHash);

@@ -34,6 +34,8 @@ import org.iota.compass.conf.CoordinatorState;
 import org.iota.compass.exceptions.TimeoutException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.iota.compass.BFT.Hotstuff;
+import java.util.concurrent.*;
 
 import java.io.*;
 import java.net.URI;
@@ -61,6 +63,7 @@ public class Coordinator {
   private List<IotaAPIcompass> validatorAPIs;
   private Thread workerThread;
   private boolean shutdown;
+  private Hotstuff hotstuff;
 
   private long milestoneTick;
   private int depth;
@@ -70,6 +73,8 @@ public class Coordinator {
     this.state = state;
     this.shutdown = false;
     URL node = new URL(config.host);
+    this.hotstuff = new Hotstuff();
+
     System.out.println("MyCoordinator");
     this.db = new MilestoneDatabase(config.powMode,
         config.powHost,
@@ -216,13 +221,16 @@ public class Coordinator {
     log.info("Setting milestone tick rate (ms) to: " + milestoneTick);
 
 
+
     depth = config.depth;
     if (depth < 0) {
       throw new IllegalArgumentException("depth must be >= 0");
     }
     log.info("Setting depth to: " + depth);
 
-    log.info("Validating Coordinator addresses.");
+    // log.info("Validating Coordinator addresses.");
+    log.info("Validating Coordinator addresses："+nodeInfoResponse.getCoordinatorAddress());
+
     if (!Objects.equals(nodeInfoResponse.getCoordinatorAddress(), db.getRoot())) {
       log.warn("Coordinator Addresses do not match! {} vs. {}", nodeInfoResponse.getCoordinatorAddress(), db.getRoot());
       if (!config.allowDifferentCooAddress) {
@@ -233,6 +241,11 @@ public class Coordinator {
 
   private void start() throws InterruptedException {
     int bootstrapStage = 0;
+    if(config.Mulitiple)
+    if(!hotstuff.setPort(config.hotstuff_recv_port)){
+      System.out.println("addresses is bind");
+      return;
+    }
     int milestonePropagationRetries = 0;
     this.workerThread = Thread.currentThread();
     shutdownHook();
@@ -243,8 +256,14 @@ public class Coordinator {
       String trunk, branch;
       String summary = "";
       GetNodeInfoResponse nodeInfoResponse = getNodeInfoWithRetries();
+      // System.out.println("nodeInfoResponse.getLatestMilestone():" + nodeInfoResponse.getLatestMilestone());
+      // System.out.println("state.latestMilestoneHash:" + state.latestMilestoneHash);
+      // System.out.println("nodeInfoResponse.getLatestMilestoneIndex():" + String.valueOf(nodeInfoResponse.getLatestMilestoneIndex()));
+      // System.out.println("state.latestMilestoneIndex:" + String.valueOf(state.latestMilestoneIndex));
 
       if (!config.bootstrap) {
+        state.latestMilestoneHash = nodeInfoResponse.getLatestMilestone();
+        state.latestMilestoneIndex = nodeInfoResponse.getLatestMilestoneIndex() + 1;
         if (!nodeIsSolid(nodeInfoResponse)) {
           log.warn("Node not solid.");
           Thread.sleep(config.unsolidDelay);
@@ -318,12 +337,18 @@ public class Coordinator {
           log.info("Bootstrapping network.");
           trunk = MilestoneSource.EMPTY_HASH;
           branch = MilestoneSource.EMPTY_HASH;
+          if(!createAndBroadcastMilestone(trunk, branch,"")){
+            continue;
+          }
           bootstrapStage = 1;
         } else {
           // Bootstrapping means creating a chain of milestones without pulling in external transactions.
           log.info("Reusing last milestone.");
           trunk = state.latestMilestoneHash;
           branch = MilestoneSource.EMPTY_HASH;
+          if(!createAndBroadcastMilestone(trunk, branch,"")){
+            continue;
+          }
           bootstrapStage++;
         }
 
@@ -339,11 +364,14 @@ public class Coordinator {
           }
         }
       }
-
+      if(!createAndBroadcastMilestone(trunk, branch, summary)){
+        Thread.sleep(milestoneTick);
+        continue;
+      }
       // If all the above checks pass we are ready to issue a new milestone
       state.latestMilestoneIndex++;
 
-      createAndBroadcastMilestone(trunk, branch, summary);
+      // createAndBroadcastMilestone(trunk, branch, summary);
       state.latestMilestoneTime = System.currentTimeMillis();
 
       // Everything went fine, now we store
@@ -382,16 +410,70 @@ public class Coordinator {
   //   broadcastLatestMilestone();
   // }
 
-  private void createAndBroadcastMilestone(String trunk, String branch,String summary) throws InterruptedException {
+  private boolean createAndBroadcastMilestone(String trunk, String branch,String summary) throws InterruptedException {
     log.info("Issuing milestone: " + state.latestMilestoneIndex);
     log.info("Trunk: " + trunk + " Branch: " + branch);
 
-    List<Transaction> latestMilestoneTransactions = db.createMilestone(trunk, branch, state.latestMilestoneIndex, config.MWM, summary);
-    state.latestMilestoneTransactions = latestMilestoneTransactions.stream().map(Transaction::toTrytes).collect(Collectors.toList());
-    state.latestMilestoneHash = latestMilestoneTransactions.get(0).getHash();
+    // List<Transaction> latestMilestoneTransactions = db.createMilestone(trunk, branch, state.latestMilestoneIndex, config.MWM, summary);
+    // state.latestMilestoneTransactions = latestMilestoneTransactions.stream().map(Transaction::toTrytes).collect(Collectors.toList());
+    // state.latestMilestoneHash = latestMilestoneTransactions.get(0).getHash();
 
-    // Do not store the state before broadcasting, since if broadcasting fails we should repeat the same milestone.
-    broadcastLatestMilestone();
+    // // Do not store the state before broadcasting, since if broadcasting fails we should repeat the same milestone.
+    // broadcastLatestMilestone();
+    if(config.Mulitiple){
+      if(config.hotstuff_remote){
+        if(!hotstuff.call_send(config.hotstuff_host, config.hotstuff_port, trunk.substring(0, 32), hotstuff.getIdx())){
+          return false;
+        } 
+      }else{
+        if(!hotstuff.call_send("127.0.0.1", config.hotstuff_port, trunk.substring(0, 32), hotstuff.getIdx())){
+          return false;
+        } 
+    }
+  }
+
+    /*wait threshold sig*/
+    /*Callable<byte[]> task = new Callable<byte[]>(){
+      @Override
+      public byte[] call() throws Exception{
+        //config config.hotstuff_recv_port
+        return hotstuff.listen_on();
+      }
+    };
+    ExecutorService executorService = Executors.newSingleThreadExecutor();
+    Future<byte[]> future = executorService.submit(task);*/
+    try{
+      List<Transaction> latestMilestoneTransactions;
+      if(config.Mulitiple){
+        byte[] result = hotstuff.listen_on();;
+        if(result.length == 1) {
+          return false;
+        }
+        if(result.length == 2) {
+          return false;
+        }
+        /**  decode result **/
+      /*add threshold sig*/
+        latestMilestoneTransactions = db.createMilestone(trunk, branch, state.latestMilestoneIndex, config.MWM, result,summary);
+      }else{
+        latestMilestoneTransactions = db.createMilestone(trunk, branch, state.latestMilestoneIndex, config.MWM,summary);
+      }
+
+
+      System.out.println("length of Transaction is " + String.valueOf(latestMilestoneTransactions.size()));
+      state.latestMilestoneTransactions = latestMilestoneTransactions.stream().map(Transaction::toTrytes).collect(Collectors.toList());
+      state.latestMilestoneHash = latestMilestoneTransactions.get(0).getHash();
+      System.out.println("broadcasting latestMilestoneHash " +state.latestMilestoneHash);
+      // Do not store the state before broadcasting, since if broadcasting fails we should repeat the same milestone.
+      broadcastLatestMilestone();
+      return true;
+    }catch(InterruptedException e){
+      e.printStackTrace();
+      return false;
+    }catch(Exception e){
+      e.printStackTrace();
+      return false;
+    }
   }
   /**
    * Checks the consistency of 2 given transactions against the nodes specified by {@link #validatorAPIs}
