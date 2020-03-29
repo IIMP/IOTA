@@ -210,8 +210,10 @@ public class MilestoneServiceImpl implements MilestoneService {
                                 siblingsTx.trits(), 0, milestoneIndex, config.getNumberOfKeysInMilestone());
                         boolean skipValidation = config.isTestnet() && config.isDontValidateTestnetMilestoneSig();
                         if (skipValidation || config.getCoordinator().equals(HashFactory.ADDRESS.create(merkleRoot))) {
+                            if(bundleTransactions.size() > 1){
                             if(!checkThresholeSignature(bundleTransactions.get(1).getSignature())){
                                 return INVALID;
+                            }
                             }
                             MilestoneViewModel newMilestoneViewModel = new MilestoneViewModel(milestoneIndex,
                                     transactionViewModel.getHash());
@@ -581,10 +583,10 @@ public class MilestoneServiceImpl implements MilestoneService {
         int thresholdSize = 0;
         for(int i = 0; i < 3; i++){
             int seq = (int)msg[itr];
-            System.out.println("number of node:" + String.valueOf(seq));
+            // System.out.println("number of node:" + String.valueOf(seq));
             itr ++;
             int len = (int)msg[itr];
-            System.out.println("leng of sig:" + String.valueOf(len));
+            // System.out.println("leng of sig:" + String.valueOf(len));
             itr ++;
             byte[] sig = new byte[len];
             System.arraycopy(msg, itr, sig, 0, len);

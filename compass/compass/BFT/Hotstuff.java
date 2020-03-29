@@ -45,7 +45,7 @@ public class Hotstuff{
 			remoteSocket.connect(addr);
 			BufferedWriter sendBufferedWriter = new BufferedWriter(new OutputStreamWriter(remoteSocket.getOutputStream()));
 			String json1 = String.valueOf(a) + String.valueOf(b) + data;//"1112345678901234567890123456789011";
-			System.out.println("json1: "+json1);
+			// System.out.println("json1: "+json1);
 			sendBufferedWriter.write(json1);
 			sendBufferedWriter.flush();
 			remoteSocket.close();
@@ -62,7 +62,7 @@ public class Hotstuff{
 			serverSocket.setSoTimeout(3000);
 			return true;
 		}catch (Exception e) {  
-	        System.out.println("error: " + e.getMessage());
+	        // System.out.println("error: " + e.getMessage());
 	        return false;
         } 
 	}
@@ -80,7 +80,7 @@ public class Hotstuff{
         					
     			byte[] datas = new byte[500];
     			int count = is.read(datas);
-    			System.out.println("receive size:" + String.valueOf(count));
+    			// System.out.println("receive size:" + String.valueOf(count));
     			if(count == 1){
     				return new byte[2];
     			}  		

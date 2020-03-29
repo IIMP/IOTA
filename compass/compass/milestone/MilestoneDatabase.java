@@ -195,7 +195,7 @@ public class MilestoneDatabase extends MilestoneSource {
   }
   @Override
   public List<Transaction> createMilestone(String trunk, String branch, int index, int mwm, byte[] threshold,String summary) {
-    System.out.println("===================Summary is "+summary+"======================");
+    // System.out.println("===================Summary is "+summary+"======================");
 
 
     String thresholdStr = Strings.padEnd(getTrytesFromBytes(threshold), ISS.FRAGMENT_LENGTH / ISS.TRYTE_WIDTH, '9');
@@ -221,9 +221,20 @@ public class MilestoneDatabase extends MilestoneSource {
     txSiblings.setBundle(EMPTY_HASH);
     txSiblings.setTrunkTransaction(trunk);
     txSiblings.setBranchTransaction(branch);
-    String siblingTag = Strings.padEnd(summary, 27, '9');
-    txSiblings.setTag(siblingTag);
+    // txSiblings.setTag(EMPTY_TAG);
     txSiblings.setNonce(EMPTY_TAG);
+
+    // System.out.println("==============test txSiblings toTrytes() with EMPTY_TAG:"+txSiblings.toTrytes()+"================");
+
+    String siblingTag = Strings.padEnd(summary, 27, '9');
+    // System.out.println("================siblingTag is :"+siblingTag+"===============");
+    txSiblings.setTag(siblingTag);
+    // System.out.println("==============test txSiblings toTrytes() with summary:"+txSiblings.toTrytes()+"================");
+
+
+
+    
+
 
     Transaction thresholdSignData = new Transaction();
     thresholdSignData.setSignatureFragments(thresholdStr);
@@ -318,7 +329,7 @@ public class MilestoneDatabase extends MilestoneSource {
 
   @Override
   public List<Transaction> createMilestone(String trunk, String branch, int index, int mwm,String summary) {
-    System.out.println("===================Summary is "+summary+"======================");
+    // System.out.println("===================Summary is "+summary+"======================");
     IotaPoW pow = getPoWProvider();
 
     // Get the siblings in the current merkle tree
@@ -489,7 +500,7 @@ public class MilestoneDatabase extends MilestoneSource {
         (int) (tx.getCurrentIndex() + 1) * SIGNATURE_LENGTH);
         tx.setSignatureFragments(sigFragment);
       }
-      System.out.println(tx.getLastIndex() + " and "+ tx.getCurrentIndex() + " and " + (int) (tx.getLastIndex() - tx.getCurrentIndex() - 1));
+      // System.out.println(tx.getLastIndex() + " and "+ tx.getCurrentIndex() + " and " + (int) (tx.getLastIndex() - tx.getCurrentIndex() - 1));
       //chain bundle
       String prevHash = txs.get((int) (tx.getLastIndex() - tx.getCurrentIndex() - 1)).getHash();
       tx.setTrunkTransaction(prevHash);

@@ -75,7 +75,7 @@ public class Coordinator {
     URL node = new URL(config.host);
     this.hotstuff = new Hotstuff();
 
-    System.out.println("MyCoordinator");
+    // System.out.println("MyCoordinator");
     this.db = new MilestoneDatabase(config.powMode,
         config.powHost,
         signatureSource,
@@ -87,8 +87,8 @@ public class Coordinator {
     //     .build();
     this.api = new IotaAPIcompass.Builder()
     .protocol("http")
-    .host("localhost")
-    .port(14265)
+    .host(node.getHost())
+    .port(node.getPort())
     .build();
 
     validatorAPIs = config.validators.stream().map(url -> {
@@ -310,7 +310,7 @@ public class Coordinator {
               throw new RuntimeException("GTTA failed to return branch");
             }
             summary = txToApprove.getSummary();
-            System.out.println("compass 294: Summary is "+summary);
+            // System.out.println("compass 294: Summary is "+summary);
 
             if(summary == null || summary.isEmpty()){
               summary = "";
@@ -344,6 +344,8 @@ public class Coordinator {
         } else {
           // Bootstrapping means creating a chain of milestones without pulling in external transactions.
           log.info("Reusing last milestone.");
+          state.latestMilestoneHash = nodeInfoResponse.getLatestMilestone(); 
+          state.latestMilestoneIndex = nodeInfoResponse.getLatestMilestoneIndex() + 1; 
           trunk = state.latestMilestoneHash;
           branch = MilestoneSource.EMPTY_HASH;
           if(!createAndBroadcastMilestone(trunk, branch,"")){
@@ -421,16 +423,30 @@ public class Coordinator {
     // // Do not store the state before broadcasting, since if broadcasting fails we should repeat the same milestone.
     // broadcastLatestMilestone();
     if(config.Mulitiple){
+	
       if(config.hotstuff_remote){
-        if(!hotstuff.call_send(config.hotstuff_host, config.hotstuff_port, trunk.substring(0, 32), hotstuff.getIdx())){
-          return false;
-        } 
+	    if(trunk == null){
+	        if(!hotstuff.call_send(config.hotstuff_host, config.hotstuff_port, branch.substring(0, 32), hotstuff.getIdx())){
+            return false;
+          } 
+	    }else{
+          if(!hotstuff.call_send(config.hotstuff_host, config.hotstuff_port, trunk.substring(0, 32), hotstuff.getIdx())){
+            return false;
+          }
+	        }
       }else{
-        if(!hotstuff.call_send("127.0.0.1", config.hotstuff_port, trunk.substring(0, 32), hotstuff.getIdx())){
-          return false;
-        } 
-    }
-  }
+	        if(trunk == null){
+	            if(!hotstuff.call_send("127.0.0.1", config.hotstuff_port, branch.substring(0, 32), hotstuff.getIdx())){
+                  return false;
+          } 
+	    }else{
+          if(!hotstuff.call_send("127.0.0.1", config.hotstuff_port, trunk.substring(0, 32), hotstuff.getIdx())){
+            return false;
+          } 
+	        }
+        
+          }
+      }
 
     /*wait threshold sig*/
     /*Callable<byte[]> task = new Callable<byte[]>(){
@@ -443,14 +459,57 @@ public class Coordinator {
     ExecutorService executorService = Executors.newSingleThreadExecutor();
     Future<byte[]> future = executorService.submit(task);*/
     try{
+      // List<Transaction> latestMilestoneTransactions;
+      // if(config.Mulitiple){
+      //   byte[] result = hotstuff.listen_on();;
+      //   if(!config.bootstrap){
+      //     if(result.length == 1) {
+      //       return false;
+      //     }
+      //     if(result.length == 2) {
+      //       return false;
+      //     }
+      //   }else{
+      //     if(result.length == 1) {
+      //       return true;
+      //     }
+      //     if(result.length == 2) {
+      //       return true;
+      //     }
+      //   }
+      //   /**  decode result **/
+      // /*add threshold sig*/
+      //   latestMilestoneTransactions = db.createMilestone(trunk, branch, state.latestMilestoneIndex, config.MWM, result,summary);
+      // }else{
+      //   latestMilestoneTransactions = db.createMilestone(trunk, branch, state.latestMilestoneIndex, config.MWM,summary);
+      // }
+
+
+      // System.out.println("length of Transaction is " + String.valueOf(latestMilestoneTransactions.size()));
+      // state.latestMilestoneTransactions = latestMilestoneTransactions.stream().map(Transaction::toTrytes).collect(Collectors.toList());
+      // state.latestMilestoneHash = latestMilestoneTransactions.get(0).getHash();
+      // System.out.println("broadcasting latestMilestoneHash " +state.latestMilestoneHash);
+      // // Do not store the state before broadcasting, since if broadcasting fails we should repeat the same milestone.
+      // broadcastLatestMilestone();
+      // return true;
       List<Transaction> latestMilestoneTransactions;
+      boolean needBroadcast = true;
       if(config.Mulitiple){
         byte[] result = hotstuff.listen_on();;
-        if(result.length == 1) {
-          return false;
-        }
-        if(result.length == 2) {
-          return false;
+        if(!config.bootstrap){
+          if(result.length == 1) {
+            return false;
+          }
+          if(result.length == 2) {
+            return false;
+          }
+        }else{
+          if(result.length == 1) {
+            needBroadcast = false;
+          }
+          if(result.length == 2) {
+            needBroadcast = false;
+          }
         }
         /**  decode result **/
       /*add threshold sig*/
@@ -460,12 +519,15 @@ public class Coordinator {
       }
 
 
-      System.out.println("length of Transaction is " + String.valueOf(latestMilestoneTransactions.size()));
+      // System.out.println("length of Transaction is " + String.valueOf(latestMilestoneTransactions.size()));
       state.latestMilestoneTransactions = latestMilestoneTransactions.stream().map(Transaction::toTrytes).collect(Collectors.toList());
       state.latestMilestoneHash = latestMilestoneTransactions.get(0).getHash();
-      System.out.println("broadcasting latestMilestoneHash " +state.latestMilestoneHash);
+      // System.out.println("broadcasting latestMilestoneHash " +state.latestMilestoneHash);
       // Do not store the state before broadcasting, since if broadcasting fails we should repeat the same milestone.
-      broadcastLatestMilestone();
+      if(needBroadcast){
+        broadcastLatestMilestone();  
+      }
+      
       return true;
     }catch(InterruptedException e){
       e.printStackTrace();
@@ -540,7 +602,7 @@ public class Coordinator {
     if (response == null) {
       throw new RuntimeException("getTransactionsToApprove failed, check node!");
     }
-    System.out.println("Initial summary got:"+response.getSummary());
+    // System.out.println("Initial summary got:"+response.getSummary());
     return response;
     // for(int i = 0; i < config.APIRetries; i++) {
     //   try {

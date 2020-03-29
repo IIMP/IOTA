@@ -691,7 +691,7 @@ public class API {
                     }
                 }}finally{
                     // log.info("Got bytecode: "+ DatatypeConverter.printHexBinary(Converter.trytesToBytes(message)));
-                    System.out.println("=============API getSummary=========");
+                    // System.out.println("=============API getSummary=========");
                     // System.out.println(DatatypeConverter.printHexBinary(fromAddr));
                     // System.out.println(DatatypeConverter.printHexBinary(toAddr));
                     // System.out.println(message.hashCode());
@@ -737,9 +737,9 @@ public class API {
             }
         }
         // track.commit();
-        for(String s:summaries){
-            System.out.println(s);
-        }
+        // for(String s:summaries){
+        //     // System.out.println(s);
+        // }
         return summaries;
         //CZTBD
     }
@@ -828,11 +828,11 @@ public class API {
                     tips1Summary += Integer.toString(tips1.hashCode());
                 }
             }
-            System.out.println("============MilestoneIssues===============");
+            // System.out.println("============MilestoneIssues===============");
             // System.out.println("        MilestoneTrunk&Branch==========> t: "+tips.get(0).toString()+" b:"+tips.get(1).toString());    
             // System.out.println("        MilestoneSummaries==========> t: "+tips0Summary+" b:"+tips1Summary);
 
-            System.out.println("Milestone=======>t:"+tips0Summary+" b:"+tips1Summary);
+            // System.out.println("Milestone=======>t:"+tips0Summary+" b:"+tips1Summary);
 
             String summaryHash =Integer.toString((Integer.toString(tips0Summary.hashCode())+Integer.toString(tips1Summary.hashCode())).hashCode());
             String finalSummary = Strings.padEnd(Converter.asciiToTrytes(summaryHash),27,'9');

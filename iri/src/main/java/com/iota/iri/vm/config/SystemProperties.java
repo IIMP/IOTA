@@ -213,15 +213,15 @@ public class SystemProperties {
                     .withFallback(userConfig)
                     .withFallback(cmdLineConfigRes)
                     .withFallback(referenceConfig);
-            System.out.println("216");
+            // System.out.println("216");
             logger.debug("Config trace: " + config.root().render(ConfigRenderOptions.defaults().
                     setComments(false).setJson(false)));
-            System.out.println("219");
+            // System.out.println("219");
 
             config = javaSystemProperties.withFallback(config)
                     .resolve();     // substitute variables in config if any
             validateConfig();
-            System.out.println("224");
+            // System.out.println("224");
 
             // There could be several files with the same name from other packages,
             // "version.properties" is a very common name

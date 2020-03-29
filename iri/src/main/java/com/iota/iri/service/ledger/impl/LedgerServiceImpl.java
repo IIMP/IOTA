@@ -344,17 +344,17 @@ public class LedgerServiceImpl implements LedgerService {
                     }
                     // System.out.println("LocalTrunk&Branch=======>t:"+trunk.getHash().toString()+" b:"+branch.getHash().toString());
 
-                    System.out.println("LocalSummaries=======>t:"+tSummary+" b:"+bSummary);
+                    // System.out.println("LocalSummaries=======>t:"+tSummary+" b:"+bSummary);
                     String summaryHash =Integer.toString((Integer.toString(tSummary.hashCode())+Integer.toString(bSummary.hashCode())).hashCode());
                     String finalSummary = Strings.padEnd(Converter.asciiToTrytes(summaryHash),27,'9');
                     // String milestoneSummary = Converter.trytes(trits).substring(TransactionViewModel.TAG_TRINARY_OFFSET,TransactionViewModel.TAG_TRINARY_OFFSET+TransactionViewModel.TAG_TRINARY_SIZE);
                     if(!finalSummary.equals(milestoneSummary)){
-                        System.out.println("!!!!!!!!!!!Summaries not match!!!!!!!!!!!!");
-                        System.out.println("State change differs from milestone's: local=>" + finalSummary +" vs milestone=> "+ milestoneSummary);
+                        // System.out.println("!!!!!!!!!!!Summaries not match!!!!!!!!!!!!");
+                        // System.out.println("State change differs from milestone's: local=>" + finalSummary +" vs milestone=> "+ milestoneSummary);
                         // track.rollback();
                         // throw new Exception("State change differs from milestone's: local=>" + finalSummary +" vs milestone=> "+ milestoneSummary);
                     }else{
-                        System.out.println("~~~~~~~~~~~~~Summaries matched~~~~~~~~~~~~~~");
+                        // System.out.println("~~~~~~~~~~~~~Summaries matched~~~~~~~~~~~~~~");
                     }
                     successfullyProcessed = balanceChanges != null;
                     if (successfullyProcessed) {
@@ -363,7 +363,7 @@ public class LedgerServiceImpl implements LedgerService {
                         if (successfullyProcessed) {
                             track.commit();
                             track.flush();
-                            log.info("[Contract] contract db commited");
+                            // log.info("[Contract] contract db commited");
                             milestoneService.updateMilestoneIndexOfMilestoneTransactions(milestone.getHash(),
                                     milestone.index());
 
@@ -475,7 +475,7 @@ private List<String> getSummary(Hash hash, Repository track){
                 }
             }}finally{
                 // log.info("Got bytecode: "+ DatatypeConverter.printHexBinary(Converter.trytesToBytes(message)));
-                System.out.println("=============LedgerService getSummary=========");
+                // System.out.println("=============LedgerService getSummary=========");
                 // System.out.println(DatatypeConverter.printHexBinary(fromAddr));
                 // System.out.println(DatatypeConverter.printHexBinary(toAddr));
                 // System.out.println(message.hashCode());
@@ -528,9 +528,9 @@ private List<String> getSummary(Hash hash, Repository track){
 
 
     }
-    for(String s:summaries){
-        System.out.println(s);
-    }
+    // for(String s:summaries){
+    //     System.out.println(s);
+    // }
     // track.commit();
     return summaries;
 }

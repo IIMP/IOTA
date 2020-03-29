@@ -223,12 +223,12 @@ public class TransactionExecutor{
         if (localCall) {
 
         // if (!localCall) {
-            System.out.println("=====Sender is "+DatatypeConverter.printHexBinary(tx.getSender())+"=======");
+            // System.out.println("=====Sender is "+DatatypeConverter.printHexBinary(tx.getSender())+"=======");
             // System.out.println("=====Sender AccountState Exists? "+track.getAccountState(tx.getSender())+"=======");
             // System.out.println("=====Sender Nonce "+DatatypeConverter.printHexBinary(tx.getNonce())+"=======");
 
             BigInteger aaa = track.increaseNonce(tx.getSender());
-            System.out.println("=====Sender Nonce "+aaa.toString()+"=======");
+            // System.out.println("=====Sender Nonce "+aaa.toString()+"=======");
 
 
             // BigInteger txGasLimit = toBI(tx.getGasLimit());

@@ -43,7 +43,7 @@ public class AccountMap {
     private final BigInteger nonce;
 
     public AccountMap(byte[] addr, BigInteger non, boolean isRLP){
-        System.out.println("AccountMap "+DatatypeConverter.printHexBinary(addr)+" to be created");
+        // System.out.println("AccountMap "+DatatypeConverter.printHexBinary(addr)+" to be created");
         if(isRLP){
             this.rlpEncoded = addr;
             RLPList items = (RLPList) RLP.decode2(rlpEncoded).get(0);
